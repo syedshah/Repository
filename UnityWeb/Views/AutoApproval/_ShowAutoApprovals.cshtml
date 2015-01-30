@@ -1,0 +1,25 @@
+﻿@using UnityWeb.Resources.DocumentApproval
+@using UnityWeb.Resources.Global
+@model UnityWeb.Models.AutoApproval.AutoApprovalsViewModel
+
+@{
+    ViewBag.Title = Index.Title;
+}
+
+<section class="accordion" style="margin-top: 5px;">
+  <section class="pane">
+    <table>
+      <thead>
+        @foreach (var viewModel in @Model.AutoApprovals)
+        {
+          <tr>
+            @Html.Partial("_ShowSingleAutoApproval", viewModel)
+          </tr>                                                                                                                   
+        }
+      </thead>
+    </table>
+    @Html.Partial("_CreateAutoApproval", Model.AddAutoApprovalViewModel)
+  </section>
+</section>
+
+

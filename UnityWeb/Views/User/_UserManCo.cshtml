@@ -1,0 +1,9 @@
+﻿@using MvcCheckBoxList.Model
+@model UnityWeb.Models.User.UserManCoViewModel
+
+@Html.CheckBoxListFor(x => x.PostedCheckBox.CheckBoxValues,
+                             x => x.AvailableItems,
+                             x => x.Value,
+                             x => x.Text,
+                             x => x.SelectedItems,
+                             Position.Vertical)

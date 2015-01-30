@@ -1,0 +1,17 @@
+﻿@using UnityWeb.HtmlHelpers
+@using UnityWeb.Resources.Admin
+
+@{
+  ViewBag.Title = Index.Title;
+}
+
+<ul>
+     @Html.BeginDiv("dstadmin")
+    <li>@Html.ActionLink(@Index.ManageApp, "Index", "Application")</li>
+    <li>@Html.ActionLink(@Index.ManageDocTypes, "Index", "DocType")</li>
+    <li>@Html.ActionLink(@Index.ManageSubDocTypes, "Index", "SubDocType")</li>
+    <li>@Html.ActionLink(@Index.ManageManCos, "Index", "ManCo")</li>
+    @Html.EndDiv()
+    <li>@Html.ActionLink(@Index.ManageDocApprovals, "Index", "AutoApproval")</li>
+    <li>@Html.ActionLink(@Index.ManageUsers, "Index", "User")</li>
+</ul>

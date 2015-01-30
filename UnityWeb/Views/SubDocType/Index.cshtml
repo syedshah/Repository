@@ -1,0 +1,25 @@
+﻿@using UnityWeb.Resources.SubDocType
+
+@model UnityWeb.Models.DocType.SubDocTypesViewModel
+
+@{
+  ViewBag.Title = Index.Title;
+}
+
+<section class="accordion" style="margin-top: 5px;">
+  <section class="pane">
+      @foreach (var viewModel in Model.SubDocTypes)
+      {
+          <table>
+            <thead>
+              <tr>
+                @Html.Partial("_ShowSingleSubDocType", viewModel)
+              </tr>
+            </thead>
+          </table>
+      }
+    @Html.Partial("_CreateSubDocType", Model.AddSubDocTypeViewModel)
+  </section>
+</section>
+
+

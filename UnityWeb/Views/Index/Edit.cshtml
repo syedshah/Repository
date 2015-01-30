@@ -1,0 +1,47 @@
+﻿@using UnityWeb.Resources.Global
+@using UnityWeb.Resources.Index
+@model UnityWeb.Models.Index.EditIndexViewModel
+@{
+    ViewBag.Title = Edit.Title;
+}
+
+<section class="accordion" style="margin-top: 5px;">
+    <section class="pane">
+        <table>
+            <thead>
+                <tr>
+                  <th class="data6">@Global.Name</th>
+                  <th class="data6">@Global.ArchiveName</th>
+                  <th class="data6">@Global.ArchiveColumn</th>
+                  <th class="last"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="4">
+                        @using (Html.BeginForm("Update", "Index", FormMethod.Post, new { id = "form" }))
+                        {
+                          @Html.HiddenFor(m => m.IndexId)
+                          <fieldset>
+                            <legend></legend>
+                            <div class="field4 floatleft">
+                              @Html.TextBoxFor(m => m.Name)
+                            </div>
+                            <div class="field4 floatleft noclear">
+                              @Html.TextBoxFor(m => m.ArchiveName)
+                            </div>
+                            <div class="field4 floatleft noclear">
+                              @Html.TextBoxFor(m => m.ArchiveColumn)
+                            </div>
+                            <div class="field3 floatright">
+                              <input type="submit" value="@Edit.EditIndex" class="insertbtn" />
+                            </div>
+                            <div class="clearfix"></div>
+                          </fieldset>
+                        }
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</section>

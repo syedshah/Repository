@@ -1,0 +1,49 @@
+﻿@using UnityWeb.Resources.Password
+@model UnityWeb.Models.Password.ChangeCurrentPasswordModel
+
+@{
+    ViewBag.Title = "ChangeCurrent";
+    Layout = "~/Views/Session/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("ChangeCurrent", "Password", FormMethod.Post))
+{
+    <div class="col5 marginauto">
+        @Html.HiddenFor(m => m.UserId)
+
+         <p>
+            @Html.LabelFor(m => m.CurrentPassword, Change.CurrentPassword, new { @class = "col2half floatleft" }) 
+            @Html.PasswordFor(m => m.CurrentPassword, new { @class = "col3 floatright txt" })
+        </p>
+        <div class="clearfix"></div>
+        <p>@Html.ValidationMessageFor(m => m.CurrentPassword)</p> 
+        <div class="clearfix"></div>
+
+        <p>
+            @Html.LabelFor(m => m.NewPassword, Change.Password, new { @class = "col1half floatleft" }) <a class="help" id="PasswordHelp">?</a>
+            @Html.PasswordFor(m => m.NewPassword, new { @class = "col3 floatright txt" })
+        </p>
+        <div class="clearfix"></div>
+        <p>@Html.ValidationMessageFor(m => m.NewPassword)</p> 
+        <div class="clearfix"></div>
+
+        <p>
+            @Html.LabelFor(m => m.ConfirmNewPassword, Change.ConfirmPassword, new { @class = "col2 floatleft" })
+            @Html.PasswordFor(m => m.ConfirmNewPassword, new { @class = "col3 floatright txt" })
+        </p>
+        <p>@Html.ValidationMessageFor(m => m.ConfirmNewPassword)</p>
+        <div class="clearfix"></div>
+        <input type="submit" class="floatright submitbtn txtcentre" value="Submit" />
+        <div class="clearfix"></div>
+    </div>
+}
+
+<div id="password-popover">
+    @Html.Partial("_PasswordComplexity")
+</div>
+
+
+@section Scripts {
+<script src="@Url.Content("~/Scripts/User/user.js")" type="text/javascript"></script>
+}
+

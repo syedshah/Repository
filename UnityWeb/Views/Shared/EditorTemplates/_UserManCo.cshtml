@@ -1,0 +1,16 @@
+﻿@using MvcCheckBoxList.Model
+@model UnityWeb.Models.User.UserManCoViewModel
+
+  <label>Selected ManCos</label>
+@Html.TextBoxFor(m => m.SelectedManCos)
+
+@Html.CheckBoxListFor(x => x.PostedCheckBox.CheckBoxValues,
+       x => x.AvailableItems,
+       x => x.Value,
+       x => x.Text,
+       x => x.SelectedItems,
+       Position.Vertical)
+
+
+234324234234
+                      

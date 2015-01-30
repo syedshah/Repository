@@ -1,0 +1,356 @@
+﻿@using UnityWeb.File
+@using UnityWeb.Models.Dashboard
+@using UnityWeb.Resources.Dashboard
+@model DashboardViewModel
+@{
+    ViewBag.Title = Index.Dashboard;
+}
+
+<div class="clearfix"></div>
+<section class="accordion accordionDash">
+      <div>                   
+             @Html.Action("ManCoDropDown", "Dashboard")
+      </div>
+    <h3><a>@Index.ProcessingNow</a><span class="floatright">click to expand</span></h3>
+    <section class="pane">
+        <table>
+            <thead>
+                <tr>
+                    <th class="data5">GRID</th>
+                    <th class="data4">DOC TYPE</th>
+                    <th class="data5">MAN CO</th>
+                    <th class="data5">PROCESSING START</th>
+                    <th class="last"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (DashboardProcessingViewModel dashboardProcessingViewModel in Model.DashboardProcessingViewModels)
+                {
+                    <tr>
+                        <td colspan="5">
+                            <table class="subtable">
+                                <thead>
+                                    <tr>
+                                        <th class="data5 odd">@dashboardProcessingViewModel.Grid</th>
+                                        <th class="data4 odd">@dashboardProcessingViewModel.DocType</th>
+                                        <th class="data5 odd">@dashboardProcessingViewModel.ManCo</th>
+                                        <th class="data5 odd">@dashboardProcessingViewModel.StartDate</th>
+                                        <th class="last"><span class="moreinfo">+ more info</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="6">
+                                            <p>
+                                                <strong>BIG ZIP:</strong>
+                                                @dashboardProcessingViewModel.BigZip
+                                                <br />
+                                                <strong>INPUT XML:</strong>
+                                                @dashboardProcessingViewModel.FileName
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </section>
+</section>
+<section class="accordion accordionDash">
+  <h3><a>@Index.RecentlyCompleted</a><span class="floatright">click to expand</span></h3>
+  <section class="pane">
+    <table>
+      <thead>
+        <tr>
+          <th class="data5">GRID</th>
+          <th class="data4">DOC TYPE</th>
+          <th class="data5">MAN CO</th>
+          <th class="data5">PROCESSING START</th>
+          <th class="last"></th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach (DashboardProcessedViewModel dashboardProcessedViewModel in Model.DashboardProcessedViewModels)
+        {
+          <tr>
+            <td colspan="5">
+              <table class="subtable">
+                <thead>
+                  <tr>
+                    <th class="data5 odd">@Html.ActionLink(@dashboardProcessedViewModel.Grid, "SearchGrid", "Document", new { grid = dashboardProcessedViewModel.Grid }, null)
+                    </th>
+                    <th class="data4 odd">@dashboardProcessedViewModel.DocType</th>
+                    <th class="data5 odd">@dashboardProcessedViewModel.ManCo</th>
+                    <th class="data5 odd">@dashboardProcessedViewModel.StartDate</th>
+                    <th class="last"><span class="moreinfo">+ more info</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td colspan="6">
+                      <p>
+                        <strong>BIG ZIP:</strong>
+                        @dashboardProcessedViewModel.BigZip
+                        <br />
+                        <strong>INPUT XML:</strong>
+                        @dashboardProcessedViewModel.FileName
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+    <div class="clearfix"></div>
+  </section>
+</section>
+<section class="accordion accordionDash">
+  <h3><a>@Index.GridsAwaiitngApproval</a><span class="floatright">click to expand</span></h3>
+  <section class="pane">
+    <table>
+      <thead>
+        <tr>
+          <th class="data5">GRID</th>
+          <th class="data4">DOC TYPE</th>
+          <th class="data5">MAN CO</th>
+          <th class="data5">PROCESSING START</th>
+          <th class="last"></th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach (DashboardUnapporvedGridsViewModel dashboardUnapporvedGridsViewModel in Model.DashboardUnapporvedGridsViewModels)
+        {
+          <tr>
+            <td colspan="5">
+              <table class="subtable">
+                <thead>
+                  <tr>
+                    <th class="data5 odd">@Html.ActionLink(@dashboardUnapporvedGridsViewModel.Grid, "SearchGrid", "Document", new { grid = dashboardUnapporvedGridsViewModel.Grid, filterHouseHolding = false, filterUnapproved = false, filterApproved = true }, null)
+                    </th>
+                    <th class="data4 odd">@dashboardUnapporvedGridsViewModel.DocType</th>
+                    <th class="data5 odd">@dashboardUnapporvedGridsViewModel.ManCo</th>
+                    <th class="data5 odd">@dashboardUnapporvedGridsViewModel.StartDate</th>
+                    <th class="last"><span class="moreinfo">+ more info</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td colspan="6">
+                      <p>
+                        <strong>BIG ZIP:</strong>
+                        @dashboardUnapporvedGridsViewModel.BigZip
+                        <br />
+                        <strong>INPUT XML:</strong>
+                        @dashboardUnapporvedGridsViewModel.FileName
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+    <br />
+    @Html.ActionLink("more", "Unapproved", "GridRun", null, new { @class = "moreUnapproved floatright"})
+    <div class="clearfix"></div>
+  </section>
+</section>
+<section class="accordion accordionDash">
+  <h3><a>@Index.GridsAwaiitngHouseHolding</a><span class="floatright">click to expand</span></h3>
+  <section class="pane">
+    <table>
+      <thead>
+        <tr>
+          <th class="data5">GRID</th>
+          <th class="data4">DOC TYPE</th>
+          <th class="data5">MAN CO</th>
+          <th class="data5">PROCESSING START</th>
+          <th class="last"></th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach (DashboardGridsAwaitingHouseHoldingViewModel dashboardGridsAwaitingHouseHoldingViewModel in Model.DashboardGridsAwaitingHouseHoldingViewModel)
+        {
+          <tr>
+            <td colspan="5">
+              <table class="subtable">
+                <thead>
+                  <tr>
+                    <th class="data5 odd">@Html.ActionLink(@dashboardGridsAwaitingHouseHoldingViewModel.Grid, "SearchGrid", "Document", new { grid = dashboardGridsAwaitingHouseHoldingViewModel.Grid, filterHouseHolding = false, filterUnapproved = true }, null)
+                    </th>
+                    <th class="data4 odd">@dashboardGridsAwaitingHouseHoldingViewModel.DocType</th>
+                    <th class="data5 odd">@dashboardGridsAwaitingHouseHoldingViewModel.ManCo</th>
+                    <th class="data5 odd">@dashboardGridsAwaitingHouseHoldingViewModel.StartDate</th>
+                    <th class="last"><span class="moreinfo">+ more info</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td colspan="6">
+                      <p>
+                        <strong>BIG ZIP:</strong>
+                        @dashboardGridsAwaitingHouseHoldingViewModel.BigZip
+                        <br />
+                        <strong>INPUT XML:</strong>
+                        @dashboardGridsAwaitingHouseHoldingViewModel.FileName
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+    <br />
+    <div class="clearfix"></div>
+  </section>
+</section>
+<section class="accordion accordionDash">
+  <h3><a>@Index.GridsRecentylyHouseHeld</a><span class="floatright">click to expand</span></h3>
+<section class="pane">
+    <table>
+      <thead>
+        <tr>
+          <th class="data4">HOUSEHOLD GRID</th>
+          <th class="data4">PROCESSING START</th>
+          <th class="last">PROCESSING END</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach (DashboardHouseHeldViewModel dashboardHouseHeldViewModel in Model.DashboardHouseHeldViewModel)
+        {
+          <tr>
+            <td colspan="5">
+              <table class="subtable">
+                <thead>
+                  <tr>
+                    <th class="data4 odd">@Html.ActionLink(@dashboardHouseHeldViewModel.HouseHoldingGrid, "HouseHolding", "GridRun", new { houseHoldingGrid = dashboardHouseHeldViewModel.HouseHoldingGrid, page=1 }, null)
+                    </th>
+                    <th class="data4 odd">@dashboardHouseHeldViewModel.StartDate</th>
+                    <th class="last">@dashboardHouseHeldViewModel.EndDate</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+    <br />    
+    <div class="clearfix"></div>
+  </section>
+</section>
+<section class="accordion accordionDash">
+  <h3><a>@Index.GridsRejected</a><span class="floatright">click to expand</span></h3>
+    <section class="pane">
+      <table>
+        <thead>
+          <tr>
+            <th class="data5">GRID</th>
+            <th class="data4">DOC TYPE</th>
+            <th class="data5">MAN CO</th>
+            <th class="data5">PROCESSING START</th>
+            <th class="last"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach (DashboardRejectedViewModel dashboardRejectedViewModel in Model.DashboardRejectedViewModels)
+          {
+            <tr>
+              <td colspan="5">
+                <table class="subtable">
+                  <thead>
+                    <tr>
+                      <th class="data5 odd">@Html.ActionLink(@dashboardRejectedViewModel.Grid, "SearchGrid", "Document", new { grid = dashboardRejectedViewModel.Grid }, null)
+                      </th>
+                      <th class="data4 odd">@dashboardRejectedViewModel.DocType</th>
+                      <th class="data5 odd">@dashboardRejectedViewModel.ManCo</th>
+                      <th class="data5 odd">@dashboardRejectedViewModel.StartDate</th>
+                      <th class="last"><span class="moreinfo">+ more info</span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td colspan="6">
+                        <p>
+                          <strong>BIG ZIP:</strong>
+                          @dashboardRejectedViewModel.BigZip
+                          <br />
+                          <strong>INPUT XML:</strong>
+                          @dashboardRejectedViewModel.FileName
+                        </p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+       <br />
+        <div class="clearfix"></div>
+    </section>
+</section>
+<section class="accordion accordionDash">
+    <h3><a>@Index.RecentExceptions</a><span class="floatright">click to expand</span></h3>
+    <section class="pane">
+        <table class="exceptions">
+            <thead>
+                <tr>
+                    <th class="data5">GRID</th>
+                    <th class="data4">DOC TYPE</th>
+                    <th class="data5">MAN CO</th>
+                    <th class="data5">PROCESSING START</th>
+                    <th class="last"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (DashboardExceptionViewModel recentExceptionViewModel in Model.DashboardExceptionViewModels)
+                {
+                    <tr>
+                        <td colspan="6">
+                            <table class="subtable">
+                                <thead>
+                                    <tr>
+                                        <th class="data5 odd">@recentExceptionViewModel.Grid</th>
+                                        <th class="data4 odd">@recentExceptionViewModel.DocType</th>
+                                        <th class="data5 odd">@recentExceptionViewModel.ManCo</th>
+                                        <th class="data5 odd">@recentExceptionViewModel.StartDate</th>
+                                        <th class="last"><span class="moreinfo">+ more info</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="6">
+                                            <p>
+                                                <strong>BIG ZIP:</strong>
+                                                @recentExceptionViewModel.BigZip
+                                                <br />
+                                                <strong>INPUT XML:</strong>
+                                                @recentExceptionViewModel.FileName
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="clearfix"></div>
+    </section>
+</section>

@@ -1,0 +1,16 @@
+﻿@using UnityWeb.Resources.DocumentApproval
+@using UnityWeb.Resources.Global
+@model UnityWeb.Models.AutoApproval.AutoApprovalViewModel
+
+@Html.HiddenFor(m => m.DocTypeViewModel.Code, new { @class = "Code" })
+@Html.HiddenFor(m => m.Id, new { @class = "AutoApprovalId"} )
+
+<th class="data5 txtleft"><strong>@Index.DocType</strong> : @Model.DocTypeViewModel.Code</th>
+<th class="data5 txtleft"><strong>@Index.SubDocType</strong> : @Model.SubDocTypeViewModel.Code</th>
+<th class="last20 txtright">
+  @Html.ActionLink(Global.Edit, "Edit", "AutoApproval", new { autoApprovalId = @Model.Id, docTypeCode = @Model.DocTypeViewModel.Code }, null)
+  @Html.ActionLink(Global.Delete, "Delete", "AutoApproval", new { autoApprovalId = @Model.Id, docTypeCode = @Model.DocTypeViewModel.Code, mancoId = @Model.ManCoId }, null)
+</th>
+
+
+

@@ -1,0 +1,9 @@
+﻿@using UnityWeb.Resources.Security
+@{
+    ViewBag.Title = Index.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ul>
+  <li>@Html.ActionLink(@Index.Add, "AddOrUpdate", "Security")</li>
+</ul>

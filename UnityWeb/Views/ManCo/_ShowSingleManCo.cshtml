@@ -1,0 +1,7 @@
+﻿@using UnityWeb.Resources.Global
+@model UnityWeb.Models.ManCo.ManCoViewModel
+
+<th class="data6">@Model.Code</th>
+<th class="data6">@Model.Description</th>
+<th class="data6"></th>
+<th class="last">@Html.ActionLink(Global.Edit, "Edit", "ManCo", new { manCoId = @Model.Id }, null)</th>

@@ -1,0 +1,9 @@
+﻿@using UnityWeb.Resources.User
+@model UnityWeb.Models.User.ApplicationUserViewModel
+
+<th class="data5"><strong>@Index.UserName</strong> : @Model.UserName</th>
+<th class="data5"><strong>@Index.FirstName</strong> : @Model.FirstName</th>
+<th class="data5"><strong>@Index.LastName</strong> : @Model.LastName</th>
+<th class="data5"><strong>@Index.LockedOut</strong> : @Model.IsLockedOut</th>
+<th class="last" style="text-align:center">@Html.ActionLink(Index.Edit, "Edit", "User", new { userName = @Model.UserName }, null)</th>
+<th class="last" style="text-align:center">@Html.ActionLink(Index.Delete, "Delete", "User", new { userName = @Model.UserName }, null)</th>

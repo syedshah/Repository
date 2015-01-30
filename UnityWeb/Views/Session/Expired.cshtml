@@ -1,0 +1,21 @@
+﻿@using UnityWeb.Resources.User
+@model UnityWeb.Models.User.UserViewModel
+
+@{
+  ViewBag.Title = Remove.Title;
+  Layout = "~/Views/Session/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Create", "Session", FormMethod.Post))
+{
+  <div class="col5 marginauto">
+    <p>
+      <label class="col2">Session has expired due to inactivity.</label>
+    </p>
+    <p>
+      <label class="col2">@Remove.LoginAgainOne @Html.ActionLink("here", "New", "Session") @Remove.LoginAgainTwo</label>
+    </p>
+    <p>
+      <div class="clearfix"></div>
+  </div>
+}

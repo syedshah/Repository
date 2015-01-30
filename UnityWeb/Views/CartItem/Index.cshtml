@@ -1,0 +1,19 @@
+﻿@using UnityWeb.Resources.CartItems
+@model UnityWeb.Models.CartItem.CartItemsViewModel
+@{
+    ViewBag.Title = Index.CartItems;
+}
+
+<h2>@Index.YourCart</h2>
+<div class="floatright">
+  <span id="showingDocumentsSpan">@Index.ShowingDocuments @Model.PagingInfo.StartRow - @Model.PagingInfo.EndRow</span>
+</div>
+
+<div id="cartDocumentData">
+  @Html.Partial("_PagedCartItemResults", Model)
+</div>
+<div class="clearfix"></div>
+
+@section scripts {
+    <script src="@Url.Content("~/Scripts/CartItem/cartItem.js")" type="text/javascript"></script>
+}

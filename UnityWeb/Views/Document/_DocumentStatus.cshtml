@@ -1,0 +1,116 @@
+﻿@model UnityWeb.Models.Document.DocumentStatusViewModel
+@using UnityWeb.Resources.Document
+
+<ul class="itemprogress">
+  @if (Model.Arrived != null)
+  {
+    <li class="complete">
+      @Status.DataArrival<br /><br />
+      <img src="@Url.Content("~/images/complete.jpg")" alt="Complete" /><br /><br />
+      @Model.Arrived
+      <br /><br />
+    </li>
+  }
+  else
+  {
+    <li class="inComplete">
+      @Status.DataArrival<br /><br />
+      <img src="@Url.Content("~/images/incomplete.jpg")" alt="InComplete" /><br /><br /><br />
+      <br />
+    </li>
+  }
+  @if (Model.Proccessed != null)
+  {
+    <li class="complete">
+      @Status.Processed<br /><br />
+      <img src="@Url.Content("~/images/complete.jpg")" alt="Complete" /><br /><br />
+      @Model.Proccessed
+      <br /><br />
+    </li>
+  }
+  else
+  {
+    <li class="inComplete">
+      @Status.Processed<br /><br />
+      <img src="@Url.Content("~/images/incomplete.jpg")" alt="InComplete" /><br /><br /><br />
+      <br />
+    </li>
+  }
+  @if (Model.Approved != null)
+  {
+    <li class="complete">
+      @Status.Approved<br /><br />
+      <img src="@Url.Content("~/images/complete.jpg")" alt="Complete" /><br /><br />
+      @Model.Approved<br />
+      (@Model.ApprovedBy)
+    </li>
+  }
+  else if (Model.Rejected != null)
+  {
+    <li class="complete">
+      @Status.Rejected<br /><br />
+      <img src="@Url.Content("~/images/incomplete.jpg")" alt="Complete" /><br /><br />
+      @Model.Rejected<br />
+      (@Model.RejectedBy)
+    </li>
+  }
+  else
+  {
+    <li class="inComplete">
+      @Status.UnApproved<br /><br />
+      <img src="@Url.Content("~/images/incomplete.jpg")" alt="InComplete" /><br /><br /><br />
+      <br />
+    </li>
+  }
+  @if (Model.Faxed != null)
+  {
+    <li class="complete">
+      @Status.Faxed<br /><br />
+      <img src="@Url.Content("~/images/complete.jpg")" alt="Complete" /><br /><br />
+      @Model.Faxed
+      <br /><br />
+    </li>
+  }
+  else
+  {
+    <li class="inComplete">
+      @Status.Faxed<br /><br />
+      <img src="@Url.Content("~/images/incomplete_greyed.jpg")" alt="InComplete" /><br /><br /><br />
+      <br />
+    </li>
+  }
+  @if (Model.Emailed != null)
+  {
+  <li class="complete">
+    @Status.Emailed<br /><br />
+    <img src="@Url.Content("~/images/complete.jpg")" alt="Complete" /><br /><br />
+    @Model.Emailed
+    <br /><br />
+  </li>
+  }
+  else
+  {
+  <li class="inComplete">
+    @Status.Emailed<br /><br />
+    <img src="@Url.Content("~/images/incomplete_greyed.jpg")" alt="InComplete" /><br /><br /><br />
+     <br />
+  </li>
+  }
+  @if (Model.HouseHeld != null)
+  {
+    <li class="complete">
+      @Status.Househeld<br /><br />
+      <img src="@Url.Content("~/images/complete.jpg")" alt="Complete" /><br /><br />
+      @Model.HouseHeld
+      <br /><br />
+    </li>
+  }
+  else
+  {
+    <li class="inComplete">
+      @Status.Househeld<br /><br />
+      <img src="@Url.Content("~/images/incomplete.jpg")" alt="InComplete" /><br /><br /><br />
+    <br />
+    </li>
+  }
+</ul>

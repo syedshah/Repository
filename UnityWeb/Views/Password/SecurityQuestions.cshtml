@@ -1,0 +1,40 @@
+﻿@using UnityWeb.Resources.Password
+@model UnityWeb.Models.Password.PasswordSecurityQuestionsModel
+
+@{
+    ViewBag.Title = "SecurityQuestions";
+    Layout = "~/Views/Session/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("SecurityQuestions", "Password", FormMethod.Post))
+{
+    <div class="col5 marginauto">
+        @Html.HiddenFor(m => m.UserId)
+        <p>
+            @Html.LabelFor(m => m.Question1, SecurityQuestions.Question1, new { @class = "col2 floatleft" }) </p>
+          <p>  @Html.Label(Model.Question1)  </p>
+        <p>  @Html.TextBoxFor(m => m.Answer1, new { @class = "col5 txt" }) </p>
+       @Html.HiddenFor(m => m.Question1)
+       @Html.HiddenFor(m => m.Question1Id)
+         <div>@Html.ValidationMessageFor(m => m.Answer1)</div>
+         <p>
+            @Html.LabelFor(m => m.Question2, SecurityQuestions.Question2, new { @class = "col2 floatleft" }) </p>
+         <p>   @Html.Label(Model.Question2) </p>
+        <p>   @Html.TextBoxFor(m => m.Answer2, new { @class = "col5 txt" })</p>
+        @Html.HiddenFor(m => m.Question2)
+        @Html.HiddenFor(m => m.Question2Id)
+        <div>@Html.ValidationMessageFor(m => m.Answer2)</div>
+        <p>
+            @Html.LabelFor(m => m.Question3, SecurityQuestions.Question3, new { @class = "col2 floatleft" }) </p>
+         <p>   @Html.Label(Model.Question3) </p>
+        <p>   @Html.TextBoxFor(m => m.Answer3, new { @class = "col5 txt" })</p>
+        @Html.HiddenFor(m => m.Question3)
+        @Html.HiddenFor(m => m.Question3Id)
+         <div>@Html.ValidationMessageFor(m => m.Answer3)</div>
+
+        <div class="clearfix"></div>
+        <div class="clearfix"></div>
+        <input type="submit" class="floatright submitbtn txtcentre" value="Submit" />
+        <div class="clearfix"></div>
+    </div>
+}

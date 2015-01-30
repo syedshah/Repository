@@ -1,0 +1,18 @@
+﻿@using UnityWeb.Resources.User
+
+@{
+  ViewBag.Title = Remove.Title;
+  Layout = "~/Views/Session/_Layout.cshtml";
+}
+
+<div class="col5 marginauto">
+  <p>
+    <label class="col2">@LockedOut.Locked</label>
+  </p>
+  <p>
+    <label class="col2">@LockedOut.LockedOne @Html.ActionLink("here", "Forgotten", "Password") @LockedOut.LockedTwo</label>
+  </p>
+  <p>
+    <div class="clearfix"></div>
+</div>
+

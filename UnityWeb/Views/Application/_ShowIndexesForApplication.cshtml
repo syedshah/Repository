@@ -1,0 +1,52 @@
+﻿@using UnityWeb.Models.Index
+@using UnityWeb.Resources.Application
+@using UnityWeb.Resources.Global
+@model UnityWeb.Models.Index.AddIndexViewModel
+
+<tbody>
+    @foreach (IndexViewModel index in Model.Indexes)
+    {
+        <tr>
+            <td colspan="4">
+                <table class="subtable">
+                    <thead>
+                        <tr>
+                            <th class="data6">@index.Name</th>
+                            <th class="data6">@index.ArchiveName</th>
+                            <th class="data6">@index.ArchiveColumn</th>
+                            <th class="last" style="text-align:center">@Html.ActionLink(Global.Edit, "Edit", "Index", new { indexId = index.Id }, null)</th>
+                        </tr>
+                    </thead>
+                </table>
+            </td>
+        </tr>
+    }
+    <tr>
+        <td colspan="4">
+            @TempData["comment"]
+            @using (Html.BeginForm("Create", "Index", FormMethod.Post, new { }))
+            {
+              @Html.HiddenFor(m => m.ApplicaitonId)
+              <fieldset>
+                <legend></legend>
+                <div class="field4 floatleft">
+                  @Html.TextBoxFor(m => m.Name, new { placeholder = @Global.Name })
+                </div>
+                <div class="field4 floatleft noclear">
+                  @Html.TextBoxFor(m => m.ArchiveName, new { placeholder = @Global.ArchiveName } )
+                </div>
+                <div class="field4 floatleft noclear">
+                  @Html.TextBoxFor(m => m.ArchiveColumn, new { placeholder = @Global.ArchiveColumn })
+                </div>
+                <div class="field3 floatright">
+                  <input type="submit" value="@Index.AddIndex" class="insertbtn" />
+                </div>
+                <div class="clearfix"></div>
+                <div>
+                  @Html.ValidationMessageFor(m => m.ArchiveColumn)
+                </div>
+              </fieldset>
+            }
+        </td>
+    </tr>
+</tbody>

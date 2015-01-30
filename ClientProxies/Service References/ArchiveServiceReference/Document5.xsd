@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts.Document" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts.Document" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://nt-arc1-dag.nd-rainham.com/Archive-WCF/services/Document.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://nt-arc1-dag.nd-rainham.com/Archive-WCF/services/Document.svc?xsd=xsd0" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://nt-arc1-dag.nd-rainham.com/Archive-WCF/services/Document.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts" />
+  <xs:complexType name="AuthenticationData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CurrentDateTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Destination" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OriginatingUser" nillable="true" type="xs:string" />
+      <xs:element name="PassToken" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Source" nillable="true" type="xs:string" />
+      <xs:element name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AuthenticationData" nillable="true" type="tns:AuthenticationData" />
+  <xs:complexType name="ArrayOfIndexedDocumentData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="IndexedDocumentData" nillable="true" type="tns:IndexedDocumentData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfIndexedDocumentData" nillable="true" type="tns:ArrayOfIndexedDocumentData" />
+  <xs:complexType name="IndexedDocumentData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApplicationId" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AttachedDocuments" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element minOccurs="0" name="BatchId" type="xs:long" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DeliveryPoints" nillable="true" type="q2:ArrayOfstring" />
+      <xs:element minOccurs="0" name="DisplayName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileBase" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileExtension" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HasIndexes" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="ImportDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IsApproved" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsCompressed" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsEnabled" type="xs:boolean" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts" minOccurs="0" name="MappedIndexes" nillable="true" type="q3:ArrayOfIndexMapped" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="PageJumps" nillable="true" type="q4:ArrayOfstring" />
+      <xs:element minOccurs="0" name="PageStart" type="xs:int" />
+      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Resources" nillable="true" type="q5:ArrayOfstring" />
+      <xs:element minOccurs="0" name="Size" type="xs:long" />
+      <xs:element minOccurs="0" name="ValidFrom" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ValidTo" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IndexedDocumentData" nillable="true" type="tns:IndexedDocumentData" />
+  <xs:complexType name="ArrayOfIndexDefinitionData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="IndexDefinitionData" nillable="true" type="tns:IndexDefinitionData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfIndexDefinitionData" nillable="true" type="tns:ArrayOfIndexDefinitionData" />
+  <xs:complexType name="IndexDefinitionData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DataType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts" minOccurs="0" name="DropDownKeyValuePair" nillable="true" type="q6:ArrayOfDropDownItemData" />
+      <xs:element minOccurs="0" name="IndexColumnId" type="xs:int" />
+      <xs:element minOccurs="0" name="IndexName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserInterfaceXmlSettings" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Visible" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Width" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IndexDefinitionData" nillable="true" type="tns:IndexDefinitionData" />
+</xs:schema>

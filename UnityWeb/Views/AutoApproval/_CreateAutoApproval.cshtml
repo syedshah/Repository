@@ -1,0 +1,36 @@
+﻿@using UnityWeb.Resources.DocumentApproval
+
+@model UnityWeb.Models.AutoApproval.AddAutoApprovalViewModel
+
+@using (Html.BeginForm("Create", "AutoApproval", FormMethod.Post, new { id = "CreateApprovalform" }))
+{
+    @Html.HiddenFor(x => x.SelectedDocText)
+    @Html.HiddenFor(x => x.SelectedSubDocText)
+    @Html.HiddenFor(x => x.SelectedManCoText)
+    @Html.HiddenFor(x => x.SelectedApprovedText)
+    @Html.HiddenFor(x => x.ManCoId)
+
+  <div class="docapprovalsearch">
+    <div class="col3 floatleft noclear marginright15">
+      <div class="ddl">
+        @Html.DropDownListFor(m => m.DocTypeId, new SelectList(Model.DocTypesViewModel.DocTypes, "Id", "Code"), "DOC TYPE")
+        <div>
+          @Html.ValidationMessageFor(m => m.DocTypeId)
+        </div>
+      </div>
+    </div>
+    <div class="col3 floatleft noclear marginright15">
+      <div class="ddl">
+        @Html.DropDownListFor(m => m.SubDocTypeId, Enumerable.Empty<SelectListItem>(), "SUB DOC TYPE")
+        <div>
+          @Html.ValidationMessageFor(m => m.SubDocTypeId)
+        </div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+    <hr />
+    @TempData["comment"]
+    <input type="submit" value="@Index.AddDocumentApproval" class="searchbtn floatright" />
+    <div class="clearfix"></div>
+  </div>
+}

@@ -1,0 +1,12 @@
+﻿@using MvcCheckBoxList.Model
+@model UnityWeb.Models.Shared.CheckBoxViewModel
+
+@Html.CheckBoxListFor(x => x.PostedCheckBox.CheckBoxValues,
+       x => x.AvailableItems,
+       x => x.Value,
+       x => x.Text,
+       x => x.SelectedItems,
+       Position.Vertical)
+                      
+
+

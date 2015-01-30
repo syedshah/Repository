@@ -1,0 +1,22 @@
+﻿@using UnityWeb.HtmlHelpers
+@using UnityWeb.Resources.Otf
+@using UnityWeb.Resources.Global
+@model UnityWeb.Models.Otf.AppManCoEmailViewModel
+
+<th class="data5 txtleft"><strong>@Index.Application</strong> : @Model.ApplicationViewModel.Code</th>
+<th class="data5 txtleft"><strong>@Index.ManCo</strong> : @Model.ManCoViewModel.Code</th>
+<th class="data5 txtleft"><strong>@Index.DocType</strong>: @Model.DocTypeViewModel.Code</th>
+<th class="data5 txtleft"><strong>@Index.AccountNumber</strong>: @Model.AccountNumber</th>
+<th class="data8 txtcentre" style=""><strong>@Index.Email</strong>: @Model.Email</th>
+<th class="last20 txtright">@Html.ActionLink(Global.Edit, "Edit", "Otf", new { appManCoEmailId = @Model.Id }, null)</th>
+<th class="last20 txtright">@Html.ActionLink(Global.Delete, "Delete", "Otf", new { appManCoEmailId = @Model.Id }, new { @class = "DeleteOtf" })
+  @Html.HiddenFor(m => @Model.Id, new { @class= "otfId" })
+  
+@*  @Html.ActionImage(@Url.Action("Delete", "Otf", new { appManCoEmailId = @Model.Id }), @Url.Content("~/Images/progress.jpg"), "pdf", "DeleteOtf") *@
+
+</th>
+
+
+<script type="text/javascript">
+
+</script>

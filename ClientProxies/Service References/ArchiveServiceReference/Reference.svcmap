@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="72751b88-83f4-4003-b7fc-d9e34d21bda2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://nt-arc1-dag.nd-rainham.com/Archive-WCF/services/Document.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Document.disco" MetadataType="Disco" ID="5397e654-9b48-4c67-a6f3-5b9b5d81fb49" SourceId="1" SourceUrl="http://nt-arc1-dag.nd-rainham.com/Archive-WCF/services/Document.svc?disco" />
+    <MetadataFile FileName="Document.xsd" MetadataType="Schema" ID="8816a830-9897-46ab-8428-b40613b8c391" SourceId="1" SourceUrl="http://nt-arc1-dag.nd-rainham.com/Archive-WCF/services/Document.svc?xsd=xsd5" />
+    <MetadataFile FileName="Document1.xsd" MetadataType="Schema" ID="768cda4c-72a4-433b-80a6-6e999860eae9" SourceId="1" SourceUrl="http://nt-arc1-dag.nd-rainham.com/Archive-WCF/services/Document.svc?xsd=xsd2" />
+    <MetadataFile FileName="Document.wsdl" MetadataType="Wsdl" ID="512c2d52-f147-4ec2-a931-86b58ca15d3f" SourceId="1" SourceUrl="http://nt-arc1-dag.nd-rainham.com/Archive-WCF/services/Document.svc?wsdl" />
+    <MetadataFile FileName="Document1.wsdl" MetadataType="Wsdl" ID="143620af-fd04-4402-8249-404fef5203ab" SourceId="1" SourceUrl="http://nt-arc1-dag.nd-rainham.com/Archive-WCF/services/Document.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="Document2.xsd" MetadataType="Schema" ID="4615384f-aa40-4bc2-86ee-7dd698ee735d" SourceId="1" SourceUrl="http://nt-arc1-dag.nd-rainham.com/Archive-WCF/services/Document.svc?xsd=xsd1" />
+    <MetadataFile FileName="Document3.xsd" MetadataType="Schema" ID="703778e1-d9ee-4c53-8595-5481dd221704" SourceId="1" SourceUrl="http://nt-arc1-dag.nd-rainham.com/Archive-WCF/services/Document.svc?xsd=xsd6" />
+    <MetadataFile FileName="Document4.xsd" MetadataType="Schema" ID="a58743e9-576f-4c8d-b5b7-0d9339005c42" SourceId="1" SourceUrl="http://nt-arc1-dag.nd-rainham.com/Archive-WCF/services/Document.svc?xsd=xsd0" />
+    <MetadataFile FileName="Document5.xsd" MetadataType="Schema" ID="1f800f0a-4c86-47c7-be0f-6db453b81ec3" SourceId="1" SourceUrl="http://nt-arc1-dag.nd-rainham.com/Archive-WCF/services/Document.svc?xsd=xsd4" />
+    <MetadataFile FileName="Document6.xsd" MetadataType="Schema" ID="e7055c99-1670-418c-b793-9b1b11507503" SourceId="1" SourceUrl="http://nt-arc1-dag.nd-rainham.com/Archive-WCF/services/Document.svc?xsd=xsd3" />
+    <MetadataFile FileName="Document7.xsd" MetadataType="Schema" ID="1aca5c0f-65bc-4cf8-bf1a-847200fe32c6" SourceId="1" SourceUrl="http://nt-arc1-dag.nd-rainham.com/Archive-WCF/services/Document.svc?xsd=xsd7" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,83 @@
+﻿@using UnityWeb.HtmlHelpers
+@using UnityWeb.Resources.GridRun
+@model UnityWeb.Models.GridRun.GridRunSearchesViewModel
+
+@{
+    ViewBag.Title = Search.Title;
+}
+
+<div id="showGridRunStatusUrl" data-request-url="@Url.Action("Status", "GridRun")"></div>
+<section class="hotsearch floatleft hotsearch2">
+    <ul>
+        <li>@Search.DataLevel</li>
+        <li class="on">@Search.GridLevel</li>
+        <li class="last">@Search.DocumentLevel</li>
+    </ul>
+</section>
+<div class="clearfix"></div>
+<div id="status"></div>
+<section class="accordion">
+    <section class="pane">
+        <table>
+            <thead>
+                <tr>
+                    <th class="data5">GRID</th>
+                    <th class="data5">APPLICATION CODE</th>
+                    <th class="data3">SOURCE DATA</th>
+                    <th class="data3">PROGRESS</th>
+                    <th class="last"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var gridRunSearchViewModel in this.Model.GridRuns)
+                {
+                    <tr>
+                        <td colspan="5">
+                            <table class="subtable">
+                                <thead>
+                                    <tr>
+                                        <th class="data5">
+                                            @Html.ActionLink(@gridRunSearchViewModel.Grid, "SearchGrid", "Document", new { grid = gridRunSearchViewModel.Grid }, null)
+                                        </th>
+                                        <th class="data5">
+                                            @gridRunSearchViewModel.Code
+                                        </th>
+                                      <th class="data3">
+                                        @Html.ActionLink(@gridRunSearchViewModel.FileName, "Search", "File", new { file = gridRunSearchViewModel.FileName }, null)
+                                      </th>
+                                      <th>
+                                        @Html.ActionImage(@Url.Action("Status", "GridRun", new { Id = @gridRunSearchViewModel.GridRunId }), @Url.Content("~/Images/progress.jpg"), "pdf", "showGridStatus") 
+                                        @Html.HiddenFor(m => @gridRunSearchViewModel.GridRunId, new { @class= "GridRunId" })
+                                      </th>
+                                      <th class="last"><span class="moreinfo">+ more info</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="4">
+                                            <p>
+                                                <strong>APPLICATION DESCRIPTION:</strong>
+                                                @gridRunSearchViewModel.Desc
+                                                <br />
+                                                <strong>STARTED:</strong>
+                                                @gridRunSearchViewModel.StartDate
+                                                <br />
+                                                <strong>DURATION:</strong>
+                                                @gridRunSearchViewModel.Duration
+                                                <br />
+                                                <strong>STATUS:</strong>
+                                                @gridRunSearchViewModel.Status
+                                                <br />
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </section>
+</section>
+

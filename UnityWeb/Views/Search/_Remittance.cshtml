@@ -1,0 +1,8 @@
+﻿@model UnityWeb.Models.Search.SearchViewModel
+
+
+<div id="remittance" class="hidden">
+    <div class="col3 floatright noclear">
+      @Html.TextBox("PaymentDate", Model.PaymentDate != null ? Model.PaymentDate.Value.ToString("d") : null , new { data_datepicker = true,  @class = "filtertxt", @placeholder = "Payment Date", id = "RemitancePaymentDate" })
+    </div>
+</div>

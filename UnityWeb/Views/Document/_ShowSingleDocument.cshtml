@@ -1,0 +1,59 @@
+﻿@using UnityWeb.HtmlHelpers
+@model List<UnityWeb.Models.Document.DocumentViewModel>
+    
+@for (int i = 0; i < Model.Count; i++)
+  {
+    var checkedRow = (@Model[i].CheckedOut ? "checkedRow" : "");
+    
+    <!--<tr>
+      <td colspan="10">
+        <table class="subtable">
+          <thead>-->
+            <tr class="data">
+                <th class="@checkedRow" style="background:#ececec;">
+                    @if (@Model[i].CheckedOut)
+                    {
+                    @Html.BeginDiv("Admin,dstadmin,Governor",new Dictionary<string, object>{ {"class","checkOutDocDiv checkOutImg"}, {"title", "Document checked out by " +  @Model[i].CheckedOutBy}  })
+                    }
+                    else
+                    {
+                    @Html.BeginDiv("Admin,dstadmin,Governor",new Dictionary<string, object>{{"class","checkOutDocDiv"}}) 
+                    }
+                
+                    @Html.CheckBoxFor(m => m[i].Selected, new { @class = "docSelected" })
+
+                    @Html.EndDiv()
+                    @Html.HiddenFor(m => m[i].DocumentId, new { @class= "docId" })
+                    @Html.HiddenFor(m => m[i].ManCoDisplay, new { @class = "manCoDisplay" })
+                    @Html.HiddenFor(m => m[i].DocType, new { @class = "docType" })
+                    @Html.HiddenFor(m => m[i].SubDocType, new { @class = "subDocType" })
+                    @Html.HiddenFor(m => m[i].DocumentId, new { @class = "documentId" })
+                  @Html.HiddenFor(m => m[i].ManCo, new { @class = "manCo" })
+                </th>
+              <th class="odd @checkedRow txtcentre" style="background:#ececec;"><img src="@Url.Content("~/Images/warning.png")" class="warning" style="display:none;" /> @Model[i].DocType</th>
+              <th class="odd @checkedRow txtcentre" style="background:#ececec;">@Model[i].SubDocType</th>
+              <th class="odd @checkedRow txtcentre" style="background:#ececec;">@Model[i].ManCoDisplay</th>
+              <th class="odd @checkedRow txtcentre" style="background:#ececec;">@Model[i].AccountNumber</th>
+              <th class="odd @checkedRow txtcentre" style="background:#ececec;">@Model[i].InvestorReference</th>
+              <th class="odd @checkedRow txtcentre" style="background:#ececec;">@Model[i].MailPrintFlag</th>
+              <th class="odd @checkedRow txtcentre" style="background:#ececec;">@Model[i].AddresseeSubType</th>
+              <th class="odd @checkedRow txtcentre" style="background:#ececec;">@Model[i].ApprovalStatus</th>
+              <th class="odd @checkedRow txtcentre" style="background:#ececec;">
+                @Html.ActionImage(@Url.Action("PdfContainer", "Document", new { DocumentId = Model[i].DocumentId }), @Url.Content("~/Images/pdf.gif"), "pdf", "showDocument") 
+                @Html.HiddenFor(m => Model[i].DocumentId, new { @class= "DocumentId" })
+              </th>
+              <th class="odd @checkedRow txtcentre" style="background:#ececec;">
+                @Html.ActionImage(@Url.Action("Status", "Document", new { DocumentId = Model[i].DocumentId }), @Url.Content("~/Images/progress.jpg"), "pdf", "showDocumentStatus") 
+                @Html.HiddenFor(m => Model[i].DocumentId, new { @class= "DocumentId" })
+              </th>
+                <th class="odd @checkedRow txtcentre" style="background:#ececec;">
+                @Html.ActionImage(@Url.Action("Search", "GridRun", new { Grid = Model[i].Grid }), @Url.Content("~/Images/gridsearch.jpg"), "pdf", "showGrid") 
+                @Html.HiddenFor(m => Model[i].DocumentId, new { @class= "DocumentId" })
+              </th> 
+            </tr>
+          <!--</thead>
+        </table>
+      </td>
+    </tr>-->
+  }
+  

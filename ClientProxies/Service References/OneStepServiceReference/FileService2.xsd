@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/OneStepClasses" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/OneStepClasses" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="GridRunStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Undefined" />
+      <xs:enumeration value="Processing" />
+      <xs:enumeration value="OK" />
+      <xs:enumeration value="ProcessAbort" />
+      <xs:enumeration value="ProcessException" />
+      <xs:enumeration value="ScriptException" />
+      <xs:enumeration value="ApplicationTimeout" />
+      <xs:enumeration value="EmptyTrigger" />
+      <xs:enumeration value="NoData" />
+      <xs:enumeration value="ProcessUnexpectedClosure" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="GridRunStatus" nillable="true" type="tns:GridRunStatus" />
+</xs:schema>

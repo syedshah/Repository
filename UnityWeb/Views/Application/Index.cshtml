@@ -1,0 +1,25 @@
+﻿@using UnityWeb.Resources.Application
+@using UnityWeb.Resources.Global
+@model UnityWeb.Models.Applicaiton.ApplicationsViewModel
+
+@{
+    ViewBag.Title = Index.Title;
+}
+
+<section class="accordion" style="margin-top: 5px;">
+  <section class="pane">
+      @foreach (var viewModel in Model.Applicaitons)
+      {
+          <table>
+              <thead>
+                  <tr>
+                      @Html.Partial("_ShowSingleApplication", viewModel)
+                  </tr>
+              </thead>
+
+              @Html.Partial("_ShowIndexesForApplication", viewModel.AddIndexViewModel)
+
+          </table>
+      }
+  </section>
+</section>

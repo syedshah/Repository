@@ -1,0 +1,9 @@
+﻿@model UnityWeb.Models.GridRun.GridRunSearchViewModel
+<td>@Model.Grid</td>
+<td>@Model.Code</td>
+<td>@Model.Desc</td>
+<td>@Model.StartDate</td>
+<td>@Model.Duration</td>
+<td>@Model.Status</td>
+<td>@Html.ActionLink(@Model.FileName, "Search", "File", new { file = Model.FileName }, null)</td>
+

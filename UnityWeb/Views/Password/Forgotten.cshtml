@@ -1,0 +1,23 @@
+﻿@using UnityWeb.Resources.Password
+@model UnityWeb.Models.Password.ForgottenPasswordModel
+
+@{
+    ViewBag.Title = "Forgotten";
+    Layout = "~/Views/Session/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("Forgotten", "Password", FormMethod.Post))
+{
+    <div class="col5 marginauto">
+        <p>
+            @Html.LabelFor(m => m.UserName, Forgotten.Username, new { @class = "col2 floatleft" })
+            @Html.TextBoxFor(m => m.UserName, new { @class = "col3 floatright txt" })
+        </p>
+        <div>@Html.ValidationMessageFor(m => m.UserName)</div>
+        <div class="clearfix"></div>
+        <div class="clearfix"></div>
+        <input type="submit" class="floatright submitbtn txtcentre" value="Submit" />
+        <div class="clearfix"></div>
+    </div>
+}

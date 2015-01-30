@@ -1,0 +1,102 @@
+﻿@using MvcCheckBoxList.Model
+@using UnityWeb.Resources.User
+@model UnityWeb.Models.User.AddUserViewModel
+
+@{
+    ViewBag.Title = Index.Title;
+}
+
+@using (Html.BeginForm("Create", "User", FormMethod.Post, new { }))
+{
+    @TempData["comment"]
+    <section class="accordion">
+        <h3>CREATE NEW USER</h3>
+        <section class="pane">
+            <fieldset>
+                <legend></legend>
+                <div class="field2 floatleft">
+                  <p>
+                    @Html.HiddenFor(m => m.UserNameHidden, new { @class = "UserNameHidden" })
+                    @Html.TextBoxFor(m => m.UserName, new { placeholder = @Index.UserName })
+                    @Html.ValidationMessageFor(m => m.UserName)
+                  </p>
+                </div>
+                <div class="field2 floatright">
+                    <p>
+                        @Html.TextBoxFor(m => m.FirstName, new { placeholder = @Index.FirstName })
+                        @Html.ValidationMessageFor(m => m.FirstName)
+                    </p>
+                </div>
+                <div class="field2 floatleft">
+                    <p>
+                        @Html.PasswordFor(m => m.Password, new { placeholder = @Index.Password })  <a class="help" id="PasswordHelp">?</a>
+                        @Html.ValidationMessageFor(m => m.Password)
+                    </p>
+                </div>
+                <div class="field2 floatright">
+                    <p>
+                        @Html.TextBoxFor(m => m.LastName, new { placeholder = @Index.LastName })
+                        @Html.ValidationMessageFor(m => m.LastName)
+                    </p>
+                </div>
+                <div class="field2 floatleft">
+                    <p>
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { placeholder = @Index.ConfirmPassword })
+                        @Html.ValidationMessageFor(m => m.ConfirmPassword)
+                    </p>
+                </div>
+                <div class="field2 floatright">
+                    <p>
+                        @Html.TextBoxFor(m => m.Email, new { placeholder = @Index.Email })
+                        @Html.ValidationMessageFor(m => m.Email)
+                    </p>
+                </div>
+
+                 <div class="col3 floatleft marginright15">
+                    <h4>Role</h4>
+                    @Html.CheckBoxListFor(x => x.PostedRolesCheckBox.CheckBoxValues,
+                     x => x.AvailableRoleItems,
+                     x => x.Value,
+                     x => x.Text,
+                     x => x.SelectedRoleItems,
+                     Position.Vertical)
+                </div>
+
+                <div class="col3 floatleft marginright15">
+                    <h4>Domicile</h4>
+                    <div class="ddl">
+                        @Html.DropDownListFor(m => m.DomicileId, new SelectList(Model.Domiciles, "Value", "Text", "Select"), new { Id = "SelectDomicile"})
+                    </div>
+                    <div>
+                        @Html.ValidationMessageFor(m => m.DomicileId)
+                    </div>
+                </div>
+                <div class="field2 floatleft">
+                    <p>
+                        <h4>Available Management Companies</h4>
+                        <div id ="UserManCoes">
+                           
+                            @Html.EditorFor(x => x.UserManCoViewModel, "_UserManCo")
+                        </div>
+                    </p>
+                </div>
+                <div class="clearfix"></div>
+                <div class="field2 floatleft">
+                    <p>
+                        <input type="submit" value="@Index.AddUser" class="createuser" />
+                    </p>
+                </div>
+                <div class="clearfix"></div>
+            </fieldset>
+        </section>
+    </section>
+    
+}
+
+<div id="password-popover">
+    @Html.Partial("_PasswordComplexity")
+</div>
+
+@section Scripts {
+<script src="@Url.Content("~/Scripts/User/user.js")" type="text/javascript"></script>
+}

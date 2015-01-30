@@ -1,0 +1,11 @@
+﻿@using UnityWeb.Resources.DocType
+@using UnityWeb.Resources.Global
+@model UnityWeb.Models.DocType.DocTypeViewModel
+
+<th class="data6"><strong>@Index.Code</strong> : @Model.Code</th>
+<th class="data6"><strong>@Index.Description</strong> : @Model.Description</th>
+<th class="data6"></th>
+<th class="last" style="text-align:center">@Html.ActionLink(Global.Edit, "EDIT", "DocType", new { docTypeId = @Model.Id }, null)</th>
+
+
+

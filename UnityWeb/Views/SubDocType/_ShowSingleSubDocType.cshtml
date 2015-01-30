@@ -1,0 +1,9 @@
+﻿@using UnityWeb.Resources.SubDocType
+@using UnityWeb.Resources.Global
+@model UnityWeb.Models.DocType.SubDocTypeViewModel
+
+<th class="data6"><strong>@Index.Code</strong> : @Model.Code</th>
+<th class="data6"><strong>@Index.Description</strong> : @Model.Description</th>
+<th class="data6"><strong>@Index.DocType</strong> : @Model.DocTypeViewModel.Code</th>
+<th class="last" style="text-align:center">@Html.ActionLink(Global.Edit, "Edit", "SubDocType", new { subDocTypeId = @Model.Id }, null)</th>
+

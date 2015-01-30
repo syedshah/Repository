@@ -1,0 +1,7 @@
+﻿@model UnityWeb.Models.GridRun.GridRunDetailViewModel
+
+<th style="width:15%;"> @Html.ActionLink(@Model.Grid, "SearchGrid", "Document", new { grid = Model.Grid, filterHouseHolding= Model.FilterHouseHolding }, null)</th>
+<th style="width:35%;">@Model.FileName</th>
+<th style="width:10%;">@Model.DocType</th>
+<th style="width:10%;">@Model.ManCo</th>
+<th style="width:15%;">@Model.StartDate</th>

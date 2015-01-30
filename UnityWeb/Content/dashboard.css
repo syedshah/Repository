@@ -1,0 +1,86 @@
+﻿@charset "UTF-8";
+/* USER ERROR */
+.usererror {
+	margin: 0 auto;
+	padding: 0 20px;
+}
+.error {
+	margin-top: 15px;
+	padding: 10px;
+	background: url(../images/assets/redtrans.png) repeat;
+	moz-box-shadow: 1px 1px 5px #888;
+	-webkit-box-shadow: 1px 1px 5px #888;
+	box-shadow: 1px 1px 5px #888;
+  border-radius: 5px;
+}
+.error p {
+	margin: 0;
+	color: white;
+}
+.kpierror {
+  margin: 10px 0;
+  color: #ff0000;
+  border-radius: 5px;
+}
+
+/* SEARCH FILTER & MORE BUTTONS */
+.content .filterbtn, .content .morebtn, .moreUnapproved, .filterbtnReport {
+	margin: 0px;
+    padding: 4px 30px 4px 30px;
+	font-weight: 400;
+	color: white;
+	border:0;
+	moz-box-shadow: 0px 2px 2px #888;
+	-webkit-box-shadow: 0px 2px 2px #888;
+	box-shadow: 0px 2px 2px #888;
+  text-decoration: none;
+  border-radius: 3px;
+}
+
+.content .morebtn {
+	background: #53af31;
+}
+.content .filterbtn:active, .content .searchbtn:active, .content .morebtn:active {
+	margin-top: 1px;
+	moz-box-shadow: 0px 1px 2px #888;
+	-webkit-box-shadow: 0px 1px 2px #888;
+	box-shadow: 0px 1px 2px #888;
+}
+
+
+/* HOT SEARCH LEVELS */
+.hotsearch {
+	margin-top: 10px;
+	margin-right: -20px;
+	margin-bottom: 20px;
+	width: 319px;
+	height: 34px;
+	-moz-box-shadow: 1px 1px 5px #888;
+	-webkit-box-shadow: 1px 1px 5px #888;
+	box-shadow: 1px 1px 5px #888;
+	background: url(../images/assets/hotsearchbg.png) no-repeat;
+}
+.hotsearch ul {
+	margin: 0px auto;
+	padding: 0px;
+	width: 321px;
+}
+.hotsearch ul li {
+	margin: 0 5px 0 5px;
+	display: inline-block;
+}
+.hotsearch ul li a {
+	padding-top: 8px;
+	padding-bottom: 9px;
+	height: 15px;
+	color: #666;
+	text-decoration: none;
+	display: inline-block;
+}
+.hotsearch ul li a:hover, .hotsearch ul li a.on, .hotsearch ul li.on {
+  padding-top: 8px;
+	padding-bottom: 5px;
+	color: #53af31;
+	border-bottom: 3px solid #53af31;
+}
+

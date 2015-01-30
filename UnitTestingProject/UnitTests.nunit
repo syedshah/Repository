@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<NUnitProject>
+  <Settings activeconfig="Debug"/>
+  <Config name="Debug">
+    <assembly path="..\..\..\ModelTests\bin\Debug\ModelTests.dll"/>
+    <assembly path="..\..\..\ServiceTests\bin\Debug\ServiceTests.dll"/>    
+    <assembly path="..\..\..\IdentityWrapperTests\bin\Debug\IdentityWrapperTests.dll"/>
+    <assembly path="..\..\..\BusinessEngineTests\bin\Debug\BusinessEngineTests.dll"/>
+    <assembly path="..\..\..\UnityWebTests\bin\Debug\UnityWebTests.dll"/>
+  </Config>
+  <Config name="Release">
+    <assembly path="..\..\..\ModelTests\bin\Release\ModelTests.dll"/>
+    <assembly path="..\..\..\ServiceTests\bin\Release\ServiceTests.dll"/>
+    <assembly path="..\..\..\UnityWebTests\bin\Release\UnityWebTests.dll"/>
+    <assembly path="..\..\..\BusinessEngineTests\bin\Release\BusinessEngineTests.dll"/>
+  </Config>
+</NUnitProject>

@@ -1,0 +1,44 @@
+﻿@using UnityWeb.Resources.User
+@model UnityWeb.Models.User.AddUserViewModel
+
+@using (Html.BeginForm("Create", "User", FormMethod.Get))
+{
+    @TempData["comment"]
+    <fieldset>
+        <legend></legend>
+@*        <div class="field4 floatleft">
+            @Html.TextBoxFor(m => m.UserName, new { placeholder = @Index.UserName })
+            <div>
+                @Html.ValidationMessageFor(m => m.UserName)
+            </div>
+        </div>
+        <div class="field4 floatleft noclear">
+            @Html.TextBoxFor(m => m.FirstName, new { placeholder = @Index.FirstName })
+            <div>
+                @Html.ValidationMessageFor(m => m.FirstName)
+            </div>
+        </div>
+        <div class="field4 floatleft noclear">
+            @Html.TextBoxFor(m => m.LastName, new { placeholder = @Index.LastName })
+            <div>
+                @Html.ValidationMessageFor(m => m.LastName)
+            </div>
+        </div>
+        <div class="field4 floatleft noclear">
+            @Html.TextBoxFor(m => m.Email, new { placeholder = @Index.Email })
+            <div>
+                @Html.ValidationMessageFor(m => m.Email)
+            </div>
+        </div>*@
+        @* <div class="field4 floatleft noclear">
+      @Html.DropDownListFor(m => m.DocTypeId, new SelectList(Model.DocTypesViewModel.DocTypes, "Id", "Code", "Select"))
+      <div>
+      @Html.ValidationMessageFor(m => m.DocTypeId)
+    </div>
+    </div>*@
+        <div class="field3 floatright">
+            <input type="submit" value="@Index.AddUser" class="insertbtn" />
+        </div>
+        <div class="clearfix"></div>
+    </fieldset>
+}

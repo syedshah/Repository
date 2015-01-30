@@ -1,0 +1,5 @@
+﻿@using UnityWeb.Resources.Summary
+@model UnityWeb.Models.Account.UserSummaryViewModel
+
+<h2 class="txtright">@Summary.Hello @Model.FirstName</h2>
+<p class="txtright">@Summary.LastLoginIn @Model.LastLoggedInDate | @Html.ActionLink(Summary.Logout, "Remove", "Session", null, new { @class = "btnlogout" })</p>

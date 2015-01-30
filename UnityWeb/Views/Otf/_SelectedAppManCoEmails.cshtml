@@ -1,0 +1,18 @@
+﻿@model UnityWeb.Models.Otf.AppManCoEmailsViewModel
+
+<section class="accordion" style="margin-top: 5px;">
+    <section class="pane">
+        <table>
+                <thead>
+        @foreach (var viewModel in Model.AppManCoEmails)
+        {
+                    <tr>
+                        @Html.Partial("_ShowSingleAppManCoEmail", viewModel)
+                    </tr>
+        }
+      </thead>
+            </table> 
+        @Html.Partial("_CreateAppManCoEmail", Model.AddAppManCoEmailViewModel)
+    </section>
+</section>
+

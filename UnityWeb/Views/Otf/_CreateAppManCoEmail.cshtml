@@ -1,0 +1,57 @@
+﻿@using UnityWeb.Resources.Global
+@using UnityWeb.Resources.Otf
+@model UnityWeb.Models.Otf.AddAppManCoEmailViewModel
+
+@using (Html.BeginForm("Create", "Otf", FormMethod.Post, new { }))
+{
+  @TempData["comment"]
+
+    <div class="docapprovalsearch">
+        <div class="col2pt5 floatleft marginright12">
+            <div class="ddl2">
+                @Html.DropDownListFor(m => m.ApplicationId, new SelectList(Model.Applications.Applicaitons, "ApplicationId", "Code"), "Application")
+                <div>
+                    @Html.ValidationMessageFor(m => m.ApplicationId)
+                </div>
+            </div>
+        </div>
+        <div class="col2pt5 floatleft noclear marginright12">
+            <div class="ddl2">
+                @Html.DropDownListFor(m => m.ManCoId, new SelectList(Model.ManCos.ManCos, "Id", "Code"), "ManCo")
+                <div>
+                    @Html.ValidationMessageFor(m => m.ManCoId)
+                </div>
+            </div>
+        </div>
+        <div class="col2pt5 floatleft noclear marginright12">
+            <div class="ddl2">
+                @Html.DropDownListFor(m => m.DocTypeId, new SelectList(Model.DocTypes.DocTypes, "Id", "Code"), "DOC TYPE")
+                <div>
+                    @Html.ValidationMessageFor(m => m.DocTypeId)
+                </div>
+            </div>
+        </div>
+        <div class="col2pt4 floatleft noclear marginright12">
+            <div>
+                @Html.TextBoxFor(m => m.AccountNumber, new { @class = "filtertxt3", placeholder = @Index.AccountNumber })
+                <div>
+                    @Html.ValidationMessageFor(m => m.AccountNumber)
+                </div>
+            </div>
+        </div>
+
+        <div class="col2pt4 floatleft noclear marginright5">
+            <div>
+                @Html.TextBoxFor(m => m.Email, new { @class = "filtertxt3", placeholder = @Index.Email })
+                <div>
+                    @Html.ValidationMessageFor(m => m.Email)
+                </div>
+            </div>
+        </div>
+        
+        <div class="clearfix"></div>
+        <hr />
+      <input type="submit" value="@Index.AddAppManCoEmail" class="searchbtn floatright" />
+        <div class="clearfix"></div>
+    </div>
+}

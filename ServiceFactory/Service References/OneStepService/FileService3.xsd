@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/OneStepWcfServices.Contracts" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/OneStepWcfServices.Contracts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://dev.nexdox.com/OnestepServices/Services/FileService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/OneStepClasses" />
+  <xs:complexType name="ArrayOfFileStatusData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FileStatusData" nillable="true" type="tns:FileStatusData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFileStatusData" nillable="true" type="tns:ArrayOfFileStatusData" />
+  <xs:complexType name="FileStatusData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApplicationDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Grid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GridRunId" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/OneStepClasses" minOccurs="0" name="GridRunStatus" type="q1:GridRunStatus" />
+      <xs:element minOccurs="0" name="IsDebug" type="xs:boolean" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FileStatusData" nillable="true" type="tns:FileStatusData" />
+</xs:schema>

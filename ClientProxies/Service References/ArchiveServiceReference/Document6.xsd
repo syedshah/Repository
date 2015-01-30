@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://nexdox.com" elementFormDefault="qualified" targetNamespace="http://nexdox.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://nt-arc1-dag.nd-rainham.com/Archive-WCF/services/Document.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts.Document" />
+  <xs:import schemaLocation="http://nt-arc1-dag.nd-rainham.com/Archive-WCF/services/Document.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts" />
+  <xs:element name="DocumentSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts.Document" minOccurs="1" name="authenticationData" nillable="true" type="q1:AuthenticationData" />
+        <xs:element minOccurs="0" name="firstRow" type="xs:int" />
+        <xs:element minOccurs="0" name="lastRow" type="xs:int" />
+        <xs:element minOccurs="1" name="applicationId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="grid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="region" type="xs:int" />
+        <xs:element minOccurs="1" name="search1" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="search2" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="search3" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="search4" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="search5" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="search6" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="search7" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="search8" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="search9" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="search10" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocumentSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts" minOccurs="0" name="DocumentSearchResult" nillable="true" type="q2:DocumentSearchResultsData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocumentSearchAll">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts.Document" minOccurs="1" name="authenticationData" nillable="true" type="q3:AuthenticationData" />
+        <xs:element minOccurs="0" name="firstRow" type="xs:int" />
+        <xs:element minOccurs="0" name="lastRow" type="xs:int" />
+        <xs:element minOccurs="1" name="region" type="xs:int" />
+        <xs:element minOccurs="0" name="startDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endDate" nillable="true" type="xs:dateTime" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts" minOccurs="1" name="indexSearchCritera" nillable="true" type="q4:ArrayOfIndexSearchCriteraData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocumentSearchAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts" minOccurs="0" name="DocumentSearchAllResult" nillable="true" type="q5:DocumentSearchResultsData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocumentSearchAllVerbose">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts.Document" minOccurs="1" name="authenticationData" nillable="true" type="q6:AuthenticationData" />
+        <xs:element minOccurs="0" name="firstRow" type="xs:int" />
+        <xs:element minOccurs="0" name="lastRow" type="xs:int" />
+        <xs:element minOccurs="1" name="region" type="xs:int" />
+        <xs:element minOccurs="0" name="startDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endDate" nillable="true" type="xs:dateTime" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts" minOccurs="1" name="searchCriteriaList" nillable="true" type="q7:ArrayOfIndexSearchCriteraData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocumentSearchAllVerboseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts" minOccurs="0" name="DocumentSearchAllVerboseResult" nillable="true" type="q8:DocumentSearchResultsIndexedData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocumentSearchMap">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts.Document" minOccurs="1" name="authenticationData" nillable="true" type="q9:AuthenticationData" />
+        <xs:element minOccurs="0" name="firstRow" type="xs:int" />
+        <xs:element minOccurs="0" name="lastRow" type="xs:int" />
+        <xs:element minOccurs="1" name="region" type="xs:int" />
+        <xs:element minOccurs="0" name="startDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endDate" nillable="true" type="xs:dateTime" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts" minOccurs="1" name="searchCriteriaList" nillable="true" type="q10:ArrayOfIndexNameCriteriaData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocumentSearchMapResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts" minOccurs="0" name="DocumentSearchMapResult" nillable="true" type="q11:DocumentSearchResultsData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocumentSearchMapVerbose">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts.Document" minOccurs="1" name="authenticationData" nillable="true" type="q12:AuthenticationData" />
+        <xs:element minOccurs="0" name="firstRow" type="xs:int" />
+        <xs:element minOccurs="0" name="lastRow" type="xs:int" />
+        <xs:element minOccurs="1" name="region" type="xs:int" />
+        <xs:element minOccurs="0" name="startDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endDate" nillable="true" type="xs:dateTime" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts" minOccurs="1" name="searchCriteriaList" nillable="true" type="q13:ArrayOfIndexNameCriteriaData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocumentSearchMapVerboseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts" minOccurs="0" name="DocumentSearchMapVerboseResult" nillable="true" type="q14:DocumentSearchResultsIndexedData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocumentSearchMulti">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts.Document" minOccurs="1" name="authenticationData" nillable="true" type="q15:AuthenticationData" />
+        <xs:element minOccurs="0" name="firstRow" type="xs:int" />
+        <xs:element minOccurs="0" name="lastRow" type="xs:int" />
+        <xs:element minOccurs="1" name="region" type="xs:int" />
+        <xs:element minOccurs="0" name="startDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endDate" nillable="true" type="xs:dateTime" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts" minOccurs="1" name="searchCriteriaList" nillable="true" type="q16:ArrayOfIndexIdCriteriaData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocumentSearchMultiResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts" minOccurs="0" name="DocumentSearchMultiResult" nillable="true" type="q17:DocumentSearchResultsData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocumentSearchMultiVerbose">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts.Document" minOccurs="1" name="authenticationData" nillable="true" type="q18:AuthenticationData" />
+        <xs:element minOccurs="0" name="firstRow" type="xs:int" />
+        <xs:element minOccurs="0" name="lastRow" type="xs:int" />
+        <xs:element minOccurs="1" name="region" type="xs:int" />
+        <xs:element minOccurs="0" name="startDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endDate" nillable="true" type="xs:dateTime" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts" minOccurs="1" name="searchCriteriaList" nillable="true" type="q19:ArrayOfIndexIdCriteriaData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocumentSearchMultiVerboseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts" minOccurs="0" name="DocumentSearchMultiVerboseResult" nillable="true" type="q20:DocumentSearchResultsIndexedData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts.Document" minOccurs="1" name="authenticationData" nillable="true" type="q21:AuthenticationData" />
+        <xs:element minOccurs="1" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetDocumentResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentCustomProperty">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts.Document" minOccurs="1" name="authenticationData" nillable="true" type="q22:AuthenticationData" />
+        <xs:element minOccurs="1" name="documentid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="key" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentCustomPropertyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetDocumentCustomPropertyResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplication">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts.Document" minOccurs="1" name="authenticationData" nillable="true" type="q23:AuthenticationData" />
+        <xs:element minOccurs="1" name="applicationId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts" minOccurs="0" name="GetApplicationResult" nillable="true" type="q24:ApplicationInfoData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IndexAppSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts.Document" minOccurs="1" name="authenticationData" nillable="true" type="q25:AuthenticationData" />
+        <xs:element minOccurs="0" name="firstRow" type="xs:int" />
+        <xs:element minOccurs="0" name="lastRow" type="xs:int" />
+        <xs:element minOccurs="1" name="search1" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IndexAppSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts" minOccurs="0" name="IndexAppSearchResult" nillable="true" type="q26:DocumentSearchResultsData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

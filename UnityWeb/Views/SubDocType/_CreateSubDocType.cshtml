@@ -1,0 +1,33 @@
+﻿@using UnityWeb.Resources.SubDocType
+
+@model UnityWeb.Models.SubDocType.AddSubDocTypeViewModel
+
+@using (Html.BeginForm("Create", "SubDocType", FormMethod.Post, new { }))
+{
+  @TempData["comment"]
+  <fieldset>
+    <legend></legend>
+    <div class="field4 floatleft">
+      @Html.TextBoxFor(m => m.Code, new { placeholder = @Index.Code })
+      <div>
+      @Html.ValidationMessageFor(m => m.Code)
+    </div>
+    </div>
+    <div class="field4 floatleft noclear">
+      @Html.TextBoxFor(m => m.Description, new { placeholder = @Index.Description } )
+      <div>
+      @Html.ValidationMessageFor(m => m.Description)
+    </div>
+    </div>
+    <div class="field4 floatleft noclear">
+      @Html.DropDownListFor(m => m.DocTypeId, new SelectList(Model.DocTypesViewModel.DocTypes, "Id", "Code", "Select"))
+      <div>
+      @Html.ValidationMessageFor(m => m.DocTypeId)
+    </div>
+    </div>
+    <div class="field3 floatright">
+      <input type="submit" value="@Index.AddSubDoc" class="insertbtn" />
+    </div>
+    <div class="clearfix"></div>
+  </fieldset>
+}

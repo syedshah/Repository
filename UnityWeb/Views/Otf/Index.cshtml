@@ -1,0 +1,63 @@
+﻿@using UnityWeb.Resources.Global
+@using UnityWeb.Resources.Otf
+@model UnityWeb.Models.Otf.SelectAppManCoEmailsViewModel
+
+@{
+    ViewBag.Title = Index.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+  @TempData["comment"]  
+@Html.HiddenFor(m => m.Page)
+    <div class="docapprovalsearch">
+        <div class="col3 floatleft noclear marginright15">
+            <div class="ddl">
+                @Html.DropDownListFor(m => m.SelectedApplicationId, new SelectList(Model.Applications, "ApplicationId", "Code", "Select"), "Application",  new { Id = "SelectApplication"})
+                <div>
+                    @Html.ValidationMessageFor(m => m.SelectedApplicationId)
+                </div>
+            </div>
+        </div>
+      <div class="col3 floatleft noclear marginright15">
+        <div class="ddl">
+          @Html.DropDownListFor(m => m.SelectedManCoId, new SelectList(Model.ManCos, "Id", "DisplayName", "Select"), "MAN CO", new { Id = "SelectManCo" })
+          <div>
+            @Html.ValidationMessageFor(m => m.SelectedManCoId)
+          </div>
+        </div>
+      </div>
+        <div class="gridtxt">
+          @Html.TextBoxFor(x => x.SelectedAccountNumber, new { @placeholder = "ACCOUNT NUMBER" })
+        </div>
+        <div class="field3 floatright">
+            <input id="SearchOtfs" type="button" value="@Index.Search" class="insertbtn" />
+        </div>
+        <div class="clearfix"></div>
+       
+    </div>
+
+    <div id="otfs">
+    </div>
+}
+
+<div id="confirmOtfDeleteModal" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">@Index.DeleteOtf</h3>
+    </div>
+    <div class="modal-body">
+        <p>@Index.DeleteOtfConfirm</p>
+    </div>
+    <div class="modal-footer">
+        <button id="confirm" class="btn btn-primary">@Global.Confirm</button>
+        <button id="cancel" class="btn" data-dismiss="modal" aria-hidden="true">@Global.Decline</button>
+    </div>
+</div>
+
+@section scripts {
+    <script src="@Url.Content("~/Scripts/otf/otf.js")" type="text/javascript"></script>
+}
+
+

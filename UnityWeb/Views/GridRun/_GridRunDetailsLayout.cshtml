@@ -1,0 +1,48 @@
+﻿@{
+  Layout = Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model UnityWeb.Models.GridRun.GridRunsDetailViewModel
+
+@RenderBody()
+
+<section class="accordion">
+  @RenderSection("gridRunHeader") 
+  <section class="pane">
+    <table class="pane">
+      <thead>
+        <tr>
+          <th style="width:15%;">GRID</th>
+          <th style="width:35%;">INPUT XML</th>
+          <th style="width:10%;">DOC TYPE</th>
+          <th style="width:10%;">MAN CO</th>
+          <th style="width:15%;">PROCESSING START</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach (var gridRunViewModel in this.Model.GridRuns)
+        {
+          <tr>
+            <td colspan="5">
+              <table class="subtable">
+                <thead>
+                  <tr>
+                    @Html.Partial("_ShowSingleGridRunDetail", gridRunViewModel)
+                  </tr>
+                </thead>
+              </table>
+            </td>
+            
+          </tr>
+        } 
+      </tbody>
+    </table>
+  </section>
+  <div class="clearfix"></div>
+  <div id="docPagerUnapproved" class="pager">
+    @Html.Pager(Model.PagingInfo.ItemsPerPage, Model.PagingInfo.CurrentPage, Model.PagingInfo.TotalItems)
+  </div>
+</section>
+
+
+

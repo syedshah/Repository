@@ -1,0 +1,86 @@
+﻿@using UnityWeb.Resources.Global
+@using UnityWeb.Resources.Otf
+@model UnityWeb.Models.Otf.EditAppManCoEmailViewModel
+
+@{
+    ViewBag.Title = Edit.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@TempData["comment"]
+@Html.HiddenFor(m => m.Id)
+<div class="docapprovalsearch">
+    <div class="col2pt5 floatleft marginright12">
+        <div class="ddl2">
+            @Html.DropDownListFor(m => m.ApplicationId, new SelectList(Model.Applications.Applicaitons, "ApplicationId", "Code"), "Application")
+            <div>
+                @Html.ValidationMessageFor(m => m.ApplicationId)
+            </div>
+        </div>
+    </div>
+    <div class="col2pt5 floatleft noclear marginright12">
+        <div class="ddl2">
+            @Html.DropDownListFor(m => m.ManCoId, new SelectList(Model.ManCos.ManCos, "Id", "Code"), "ManCo")
+            <div>
+                @Html.ValidationMessageFor(m => m.ManCoId)
+            </div>
+        </div>
+    </div>
+    <div class="col2pt5 floatleft noclear marginright12">
+        <div class="ddl2">
+            @Html.DropDownListFor(m => m.DocTypeId, new SelectList(Model.DocTypes.DocTypes, "Id", "Code"), "DOC TYPE")
+            <div>
+                @Html.ValidationMessageFor(m => m.DocTypeId)
+            </div>
+        </div>
+    </div>
+    <div class="col2pt4 floatleft noclear marginright12">
+        <div>
+            @Html.TextBoxFor(m => m.OtfAccountNumber, new { placeholder = @Edit.AccountNumber })
+            <div>
+                @Html.ValidationMessageFor(m => m.OtfAccountNumber)
+            </div>
+        </div>
+    </div>
+
+    <div class="col2pt4 floatleft noclear marginright5">
+        <div>
+            @Html.TextBoxFor(m => m.OtfEmail, new { placeholder = @Edit.Email })
+            <div>
+                @Html.ValidationMessageFor(m => m.OtfEmail)
+            </div>
+        </div>
+    </div>
+        
+    <div class="clearfix"></div>
+  <hr />
+  @Html.HiddenFor(m => m.OrigionalEmail)
+    <input type="submit" value="@Edit.EditAppManCoEmail" class="searchbtn floatright editOtf" />
+    <div class="clearfix"></div>
+</div>
+
+<div id="confirmOtfEditeModal" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">@Edit.ConfirmOtfEdit</h3>
+    </div>
+    <div class="modal-body">
+        <p>@Edit.ConfirmOtfEdit</p>
+        <div>
+            @Html.TextBoxFor(m => m.OrigionalEmail, new { placeholder = @Edit.Email, @class = "confirmEmail" })
+        </div>
+        <p id="confirmError" class="error">@Edit.ConfirmError</p>
+        <div class="clearfix"></div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="col2pt4 floatleft noclear marginright5">
+    </div>
+    <div class="modal-footer">
+        <button id="otfEditconfirm" class="btn btn-primary">@Global.Confirm</button>
+        <button id="otfCancel" class="btn" data-dismiss="modal" aria-hidden="true">@Global.Decline</button>
+    </div>
+</div>
+
+@section scripts {
+    <script src="@Url.Content("~/Scripts/otf/otf.js")" type="text/javascript"></script>
+}

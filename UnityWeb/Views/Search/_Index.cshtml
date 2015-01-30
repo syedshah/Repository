@@ -1,0 +1,89 @@
+﻿@using UnityWeb.Resources.Search
+@model UnityWeb.Models.Search.SearchViewModel
+
+@using (Html.BeginForm("Search", "Document", FormMethod.Post, new { id = "formSearch" }))
+{
+  @Html.HiddenFor(x => x.SelectedDocText)
+  @Html.HiddenFor(x => x.SelectedSubDocText)
+  @Html.HiddenFor(x => x.SelectedManCoText)
+ 
+  <div id="searchSubDocType" data-request-url="@Url.Action("subdoctype", "Search")"></div>
+  <div id="documentSearch" data-request-url="@Url.Action("Search", "Document")"></div>
+  <div id="documentGridSearch" data-request-url="@Url.Action("SearchGrid", "Document")"></div>
+  <div id="documentSearch" data-request-url="@Url.Action("Search", "Document")"></div>
+  <div class="search">
+    <div class="col2pt5 floatleft marginright12">
+      <div class="ddl2">
+        @Html.DropDownListFor(x => x.SelectedDocId, new SelectList(Model.DocTypes, "Id", "Code"), "DOC TYPE")
+      </div>
+    </div>
+    <div class="col2pt5 floatleft noclear marginright12">
+      <div class="ddl2">
+        @Html.DropDownListFor(x => x.SelectedSubDocId, new SelectList(Model.SubDocTypes, "Id", "Code"), "DOC SUB TYPE")
+      </div>
+    </div>
+      <div class="col2pt5 floatleft noclear marginright15">
+          <div class="ddl2">
+              @Html.DropDownListFor(x => x.SelectedManCoId, new SelectList(Model.ManCos, "Id", "DisplayName"), "MAN CO")
+          </div>
+      </div>
+      <div class="col2pt4 floatleft noclear marginright12">
+          <div class="cal" >
+              @Html.TextBox("ProcessingDateFrom", Model.ProcessingDateFrom != null ? Model.ProcessingDateFrom.Value.ToString("d") : null , new { data_datepicker = true,  @class = "filtertxt2", @placeholder = "Process Date From" })
+          </div>
+      </div>
+      <div class="col2pt4 floatleft noclear marginright12">
+          <div class="cal">
+               @Html.TextBox("ProcessingDateTo", Model.ProcessingDateTo != null ? Model.ProcessingDateTo.Value.ToString("d") : null , new { data_datepicker = true,  @class = "filtertxt2", @placeholder = "Process Date To" })
+          </div>
+      </div>
+      <div class="clearfix"></div>
+      <hr />
+      <div class="col3 floatleft marginright15">
+          @Html.TextBoxFor(x => x.AddresseeSubType, new { @class = "filtertxt", @placeholder = "Addressee Sub Type" })
+      </div>
+      <div class="col3 floatleft marginright12 noclear">
+          @Html.TextBoxFor(x => x.MailingName, new { @class = "filtertxt", @placeholder = "Mailing Name" })
+      </div>
+      <div class="col3 floatleft marginright12 noclear">
+          @Html.TextBoxFor(x => x.PrimaryHolder, new { @class = "filtertxt", @placeholder = "Primary Holder" })
+      </div>   
+      <div class="col3 floatleft noclear">
+          @Html.TextBoxFor(x => x.InvestorReference, new { @class = "filtertxt", @placeholder = "Investor Reference" })
+      </div>
+
+      <div class="clearfix" style="margin-bottom: 10px;"></div>
+
+      <div class="col3 floatleft marginright15 noclear">
+          @Html.TextBoxFor(x => x.AccountNumber, new { @class = "filtertxt", @placeholder = "Account Number" })
+      </div>
+      <div class="col3 floatleft marginright12 noclear">
+          @Html.TextBoxFor(x => x.AgentReference, new { @class = "filtertxt", @placeholder = "Agent Reference" })
+      </div>
+      <div class="col3 floatleft noclear">
+          @Html.TextBoxFor(x => x.AddresseePostCode, new { @class = "filtertxt", @placeholder = "Addressee Post Code" })
+      </div>
+      <div class="clearfix" style="margin-bottom: 10px;"></div>
+      @Html.Partial("_ContractNotes", Model)
+      @Html.Partial("_StockTransfer", Model)
+      @Html.Partial("_TaxVoucher", Model)
+      @Html.Partial("_ValAndTranStatement", Model)
+      @Html.Partial("_MaintenanceLetters", Model)
+      @Html.Partial("_ChangeOfName", Model)
+      @Html.Partial("_Remittance", Model)
+      @Html.Partial("_PeriodicStatement", Model)
+      @Html.Partial("_InitialCommission", Model)
+      @Html.Partial("_RenewalCommission", Model)
+      @Html.Partial("_DVAStatement", Model)
+      <div class="clearfix"></div>
+      <hr />
+      <span id="searchError">@TempData["error"]</span>
+      <input type="hidden" id="searchValid" value='@TempData["valid"]' />
+      <div class="floatright">
+          @Html.ActionLink(Index.Reset, "Reset", "Search", null, new { @class = "resetbtn"})
+          <input type="submit" value="@Index.Search" class="searchbtn" />
+      </div>
+      <div class="clearfix"></div>
+  </div>
+}
+    

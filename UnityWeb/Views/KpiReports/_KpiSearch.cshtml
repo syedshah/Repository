@@ -1,0 +1,28 @@
+﻿@model UnityWeb.Models.KpiReport.KpiReportViewModel
+
+<div class="kpiReport">
+    <div class="col5 floatleft noclear marginright15">
+      <div class="ddl">
+        @Html.DropDownListFor(x => x.SelectedManCoId, new SelectList(Model.ManCos, "Id", "DisplayName"), "MAN CO")
+      </div>
+    </div>
+    <div class="col2pt4 floatleft noclear marginright12">
+      <div>
+        @Html.TextBox("DateFrom", Model.DateFrom != null ? Model.DateFrom.Value.ToString("d") : null, new { data_datepicker = true, @class = "filtertxt2", @placeholder = "Date From" })
+      </div>
+    </div>
+    <div class="col2pt4 floatleft noclear marginright12">
+      <div>
+        @Html.TextBox("DateTo", Model.DateTo != null ? Model.DateTo.Value.ToString("d") : null, new { data_datepicker = true, @class = "filtertxt2", @placeholder = "Date To" })
+      </div>
+    </div>
+    <div class="clearfix"></div>
+    <hr>
+    <div class="floatleft">
+       <span id="kpiError" class="kpierror">@TempData["kpierror"]</span>
+    </div>
+    <div class="floatright">
+      <input type="submit" class="floatright filterbtnReport txtcentre" value="Run" name="submitButton" />
+    </div>
+    <div class="clearfix"></div>
+</div>

@@ -1,0 +1,47 @@
+﻿@using UnityWeb.Resources.DocumentApproval
+@model UnityWeb.Models.AutoApproval.EditAutoApprovalViewModel
+
+@{
+    ViewBag.Title = Edit.Title;
+}
+
+<section class="accordion" style="margin-top: 5px;">
+  <section class="pane">
+    @using (Html.BeginForm("Update", "AutoApproval", FormMethod.Post, new { id = "form" }))
+    {
+      @Html.HiddenFor(m => m.AutoApprovalId)
+      @Html.HiddenFor(x => x.ManCoId)
+      @Html.HiddenFor(c => c.DocTypeCode)
+      <div class="docapprovalsearch">
+
+        <div class="col3 floatleft noclear marginright12">
+          @Html.Label("Doc Type")<br />
+          <div class="ddl">
+            @Html.DropDownListFor(m => m.DocTypeId, new SelectList(Model.DocTypes, "Id", "Code"), Model.DocTypeId)
+            <div>
+              @Html.ValidationMessageFor(m => m.DocTypeId)
+            </div>
+          </div>
+        </div>
+
+        <div class="col3 floatleft noclear marginright12">
+          @Html.Label("Sub Doc Type")<br />
+          <div class="ddl">
+            @Html.DropDownListFor(m => m.SubDocTypeId, new SelectList(Model.SubDocTypes, "Id", "Code"), Model.SubDocTypeId)
+            <div>
+              @Html.ValidationMessageFor(m => m.SubDocTypeId)
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <hr />
+        @TempData["comment"]
+        <input type="submit" value="@Edit.Save" class="searchbtn floatright" />
+        <div class="clearfix"></div>
+      </div>
+    }
+  </section>
+</section>
+
+
+

@@ -1,0 +1,96 @@
+﻿@using UnityWeb.Resources.Security
+@model UnityWeb.Models.Security.EditSecuirtyAnswersModel
+
+@{
+    ViewBag.Title = Edit.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("EditAnswers", "Security", FormMethod.Post))
+{
+    <div class="col5 marginauto">
+        @Html.HiddenFor(m => m.UserId)
+        <p>
+            @Html.LabelFor(m => m.Question1, Edit.Question1, new { @class = "col2 floatleft" }) </p>
+          <p>  @Html.Label(Model.Question1)  </p>
+        <p>  @Html.TextBoxFor(m => m.Answer1, new { @class = "col5 txt" }) </p>
+       @Html.HiddenFor(m => m.Question1)
+       @Html.HiddenFor(m => m.Answer1Id)
+         <div>@Html.ValidationMessageFor(m => m.Answer1)</div>
+         <p>
+            @Html.LabelFor(m => m.Question2, Edit.Question2, new { @class = "col2 floatleft" }) </p>
+         <p>   @Html.Label(Model.Question2) </p>
+        <p>   @Html.TextBoxFor(m => m.Answer2, new { @class = "col5 txt" })</p>
+        @Html.HiddenFor(m => m.Question2)
+        @Html.HiddenFor(m => m.Answer2Id)
+        <div>@Html.ValidationMessageFor(m => m.Answer2)</div>
+        <p>
+            @Html.LabelFor(m => m.Question3, Edit.Question3, new { @class = "col2 floatleft" }) </p>
+         <p>   @Html.Label(Model.Question3) </p>
+        <p>   @Html.TextBoxFor(m => m.Answer3, new { @class = "col5 txt" })</p>
+        @Html.HiddenFor(m => m.Question3)
+        @Html.HiddenFor(m => m.Answer3Id)
+        <div>@Html.ValidationMessageFor(m => m.Answer3)</div>
+
+
+          <p>
+            @Html.LabelFor(m => m.Question4, Edit.Question4, new { @class = "col2 floatleft" }) </p>
+          <p>  @Html.Label(Model.Question4)  </p>
+        <p>  @Html.TextBoxFor(m => m.Answer4, new { @class = "col5 txt" }) </p>
+       @Html.HiddenFor(m => m.Question4)
+       @Html.HiddenFor(m => m.Answer4Id)
+         <div>@Html.ValidationMessageFor(m => m.Answer4)</div>
+         <p>
+            @Html.LabelFor(m => m.Question5, Edit.Question5, new { @class = "col2 floatleft" }) </p>
+         <p>   @Html.Label(Model.Question5) </p>
+        <p>   @Html.TextBoxFor(m => m.Answer5, new { @class = "col5 txt" })</p>
+        @Html.HiddenFor(m => m.Question5)
+        @Html.HiddenFor(m => m.Answer5Id)
+        <div>@Html.ValidationMessageFor(m => m.Answer5)</div>
+        <p>
+            @Html.LabelFor(m => m.Question6, Edit.Question6, new { @class = "col2 floatleft" }) </p>
+         <p>   @Html.Label(Model.Question6) </p>
+        <p>   @Html.TextBoxFor(m => m.Answer6, new { @class = "col5 txt" })</p>
+        @Html.HiddenFor(m => m.Question6)
+        @Html.HiddenFor(m => m.Answer6Id)
+        <div>@Html.ValidationMessageFor(m => m.Answer6)</div>
+
+  
+          <p>  @Html.LabelFor(m => m.Question7, Edit.Question7, new { @class = "col2 floatleft" }) </p>
+          <p>  @Html.Label(Model.Question7)  </p>
+        <p>  @Html.TextBoxFor(m => m.Answer7, new { @class = "col5 txt" }) </p>
+       @Html.HiddenFor(m => m.Question7)
+       @Html.HiddenFor(m => m.Answer7Id)
+         <div>@Html.ValidationMessageFor(m => m.Answer7)</div>
+         <p>
+            @Html.LabelFor(m => m.Question8, Edit.Question8, new { @class = "col2 floatleft" }) </p>
+         <p>   @Html.Label(Model.Question8) </p>
+        <p>   @Html.TextBoxFor(m => m.Answer8, new { @class = "col5 txt" })</p>
+        @Html.HiddenFor(m => m.Question8)
+        @Html.HiddenFor(m => m.Answer8Id)
+        <div>@Html.ValidationMessageFor(m => m.Answer8)</div>
+        <p>
+            @Html.LabelFor(m => m.Question9, Edit.Question9, new { @class = "col2 floatleft" }) </p>
+         <p>   @Html.Label(Model.Question9) </p>
+        <p>   @Html.TextBoxFor(m => m.Answer9, new { @class = "col5 txt" })</p>
+        @Html.HiddenFor(m => m.Question9)
+        @Html.HiddenFor(m => m.Answer9Id)
+        <div>@Html.ValidationMessageFor(m => m.Answer9)</div>
+
+          <p>
+            @Html.LabelFor(m => m.Question10, Edit.Question10, new { @class = "col2 floatleft" }) </p>
+         <p>   @Html.Label(Model.Question10) </p>
+        <p>   @Html.TextBoxFor(m => m.Answer10, new { @class = "col5 txt" })</p>
+        @Html.HiddenFor(m => m.Question10)
+        @Html.HiddenFor(m => m.Answer10Id)
+        <div>@Html.ValidationMessageFor(m => m.Answer10)</div>
+        <p>
+
+        <div class="clearfix"></div>
+        <div class="clearfix"></div>
+        <input type="submit" class="floatright submitbtn txtcentre" value="Submit" />
+        <div class="clearfix"></div>
+    </div>
+}
+
+

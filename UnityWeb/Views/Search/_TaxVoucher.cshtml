@@ -1,0 +1,17 @@
+﻿@model UnityWeb.Models.Search.SearchViewModel
+
+
+<div id="taxVoucher" class="hidden">
+  <div class="col3 floatleft marginright15">
+      @Html.TextBoxFor(x => x.EmailAddress, new { @class = "filtertxt", @placeholder = "Email Address" })
+    </div>
+  <div class="col3 floatleft marginright12 noclear">
+    @Html.TextBoxFor(x => x.FaxNumber, new { @class = "filtertxt", @placeholder = "Fax Number" })
+  </div>
+  <div class="col3 floatleft marginright12 noclear">
+    @Html.TextBox("AccountPeriodEnd", Model.PaymentDate != null ? Model.PaymentDate.Value.ToString("d") : null , new { data_datepicker = true,  @class = "filtertxt", @placeholder = "Account Period End" })
+  </div>
+    <div class="col3 floatright noclear">
+      @Html.TextBox("PaymentDate", Model.PaymentDate != null ? Model.PaymentDate.Value.ToString("d") : null, new { data_datepicker = true, @class = "filtertxt", @placeholder = "Payment Date", id = "TaxVoucherPaymentDate" })
+    </div>
+</div>

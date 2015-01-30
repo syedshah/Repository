@@ -1,0 +1,29 @@
+﻿@using UnityWeb.Resources.User
+@model UnityWeb.Models.User.UsersViewModel
+
+<div id="totalNumberOfDocuments">
+  <span>@Index.TotalItems @Model.PagingInfo.TotalItems</span>
+</div>
+
+<section class="accordion" style="margin-top: 5px;">
+    <section class="pane">
+        @foreach (var viewModel in Model.Users)
+        {
+            <table>
+                <thead>
+                    <tr>
+                        @Html.Partial("_ShowSingleUser", viewModel)
+                    </tr>
+                </thead>
+            </table>
+        }
+        @Html.Partial("_CreateUser", Model.AddUserViewModel)
+    </section>
+</section>
+
+<div id="results">
+      </div>
+  <div class="pager">
+    @Html.Pager(Model.PagingInfo.ItemsPerPage, Model.PagingInfo.CurrentPage, Model.PagingInfo.TotalItems)
+  </div>
+  @Html.HiddenFor(m => Model.CurrentPage)

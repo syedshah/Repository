@@ -1,0 +1,121 @@
+﻿@model UnityWeb.Models.CartItem.CartItemsViewModel
+@using UnityWeb.Resources.CartItems
+@using UnityWeb.Resources.Global
+
+<div id="totalNumberOfDocuments">
+  <span>@Index.TotalItems @Model.PagingInfo.TotalItems</span>
+</div>
+<div id="showPDFUrl" data-request-url="@Url.Action("PdfContainer", "Document")"></div>
+<div id="showDocumentStatusUrl" data-request-url="@Url.Action("Status", "Document")"></div>
+<div id="removeFromCartUrl" data-request-url="@Url.Action("RemoveFromCart", "CartItem")"></div>
+<div id="showCartItemsUrl" data-request-url="@Url.Action("Index", "CartItem")"></div>
+<div id="dashboardHomeUrl" data-request-url="@Url.Action("Index", "Dashboard")"></div>
+
+<section class="accordion">
+  <section class="pane">
+    <table id="basketSummary" class="documents">
+      <thead>
+        <tr>
+          <th style="width: 5%;">
+            <input type='checkbox' id='selectAll' text="Select All"></th>
+          <th style="width: 10%;">@Index.DocType</th>
+          <th style="width: 25%;">@Index.DocSubType</th>
+          <th style="width: 25%;">@Index.ManCo</th>
+          <th style="width: 25%;">@Index.ApprovalStatus</th>
+          <th class="last20 txtright">@Index.View</th>
+        </tr>
+      </thead>
+      <tbody>
+        @Html.Partial("_ShowSingleCartItem", Model.CartItems)
+      </tbody>
+    </table>
+  </section>
+</section>
+<div id="results"></div>
+<div id="status"></div>
+<div class="pager">
+  @Html.Pager(Model.PagingInfo.ItemsPerPage, Model.PagingInfo.CurrentPage, Model.PagingInfo.TotalItems)
+</div>
+@Html.HiddenFor(m => Model.CurrentPage)
+<div class="actionbtn">
+  <ul class="actiondd">
+    <li><a href="#" class="btndropdown">Actions</a>
+      <ul>
+        <li><a href="" id="removeFromCart">@Index.RemoveFromCart</a></li>
+        @Html.ActionLink(Index.EmptyBasket, "ClearCart", "CartItem")
+        <li><a href="" id="approveSelected">@Index.ApproveDocument</a></li>
+        <li><a href="" id="approveBasket">@Index.ApproveBasket</a></li>
+        <li><a href="" id="rejectSelected">@Index.RejectDocument</a></li>
+        <li><a href="#" onclick="javaScript:cartItem.exportSelectedDocuments();" id="exportSelected">@Index.ExportDocument</a></li>
+        <li><a href="#" onclick="javaScript:cartItem.exportBasket();" id="exportBasket">@Index.ExportBasket</a></li>
+        <li><a href="" id="rejectBasket">@Index.RejectGrid</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+<div class="clearfix"></div>
+<!-- Modal -->
+<div id="approveSelectedModal" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">@Index.ApproveDocument</h3>
+  </div>
+  <div class="modal-body">
+    <p>@Global.ApproveSelectedMsg</p>
+  </div>
+  <div class="modal-footer">
+    <button id="confirm" class="btn btn-primary">@Global.Confirm</button>
+    <button id="cancel" class="btn" data-dismiss="modal" aria-hidden="true">@Global.Decline</button>
+  </div>
+</div>
+<div id="approveBasketModal" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">@Index.ApproveBasket</h3>
+  </div>
+  <div class="modal-body">
+    <p>@Index.ApproveBasketConfirm</p>
+  </div>
+  <div class="modal-footer">
+    <button id="confirm" class="btn btn-primary">@Global.Confirm</button>
+    <button id="cancel" class="btn" data-dismiss="modal" aria-hidden="true">@Global.Decline</button>
+  </div>
+</div>
+<div id="rejectSelectedModal" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">@Global.RejectDocument</h3>
+  </div>
+  <div class="modal-body">
+    <p>@Global.RejectSelectedMsg</p>
+  </div>
+  <div class="modal-footer">
+    <button id="confirmRejectSelected" class="btn btn-primary">@Global.Confirm</button>
+    <button id="cancel" class="btn" data-dismiss="modal" aria-hidden="true">@Global.Decline</button>
+  </div>
+</div>
+<div id="rejectBasketModal" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">@Index.RejectGrid</h3>
+  </div>
+  <div class="modal-body">
+    <p>@Index.RejectBasketConfirm</p>
+  </div>
+  <div class="modal-footer">
+    <button id="confirm" class="btn btn-primary">@Global.Confirm</button>
+    <button id="cancel" class="btn" data-dismiss="modal" aria-hidden="true">@Global.Decline</button>
+  </div>
+</div>
+<div id="pleaseSelectModal" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">@Global.PleaseSelect</h3>
+  </div>
+  <div class="modal-body">
+    <p>@Global.PleaseSelect</p>
+  </div>
+  <div class="modal-footer">
+    <button id="continue" class="btn btn-primary">@Global.Continue</button>
+  </div>
+</div>

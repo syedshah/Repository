@@ -1,0 +1,21 @@
+﻿@using UnityWeb.Resources.ManCo
+@model UnityWeb.Models.ManCo.ManCosViewModel
+
+@{
+  ViewBag.Title = Index.Title;
+}
+
+<section class="accordion" style="margin-top: 5px;">
+  <section class="pane">
+      @foreach (var viewModel in Model.ManCos)
+      {
+          <table>
+              <thead>
+                  <tr>
+                      @Html.Partial("_ShowSingleManCo", viewModel)
+                  </tr>
+              </thead>
+          </table>
+      }
+  </section>
+</section>

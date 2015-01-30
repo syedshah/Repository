@@ -1,0 +1,10 @@
+﻿@using UnityWeb.Resources.LogInReport
+
+@{
+  ViewBag.Title = LogInReport.Title;
+}
+
+<section>
+  <h2 class="header">@LogInReport.Title</h2>
+  <input class="filterbtnReport" type="button" title="Run" value="Run Log In Report" onclick="location.href='@Url.Action("Run", "LogInReport")  '" />
+</section>

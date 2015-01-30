@@ -1,0 +1,56 @@
+﻿@charset "UTF-8";
+/* LOGIN */
+.login {
+	margin-top: 50px;
+	padding: 30px 10px;
+	position: relative;
+	moz-box-shadow: 1px 1px 5px #888;
+	-webkit-box-shadow: 1px 1px 5px #888;
+	box-shadow: 1px 1px 5px #888;
+	background: url(../images/assets/headerbg.png) repeat;
+  border-top-left-radius:5px;
+  border-top-right-radius: 5px;
+}
+.login label {
+	font-size: 1.1em;
+}
+.login input.txt {
+  padding-left: 10px;
+	height: 20px;
+	border-top: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	border-bottom: 0px;
+  border-radius: 3px;
+}
+.login .submitbtn {
+	margin-top: 20px;
+	padding-top: 2px;
+	width: 111px;
+	height: 30px;
+	font-size: 1.07em;
+	font-weight: 300;
+	text-decoration: none;
+	color: white;
+	display: block;
+	background-color: #53af31;
+	/*background-image: url(../images/assets/submitbtn.png);*/
+	background-repeat: no-repeat;
+	border:0;	
+  border-radius:5px;
+}
+.login p.forgottenpassword {
+	padding-top: 10px;
+}
+.login p.forgottenpassword a {
+	color: black;
+}
+.loginfooter {
+	padding: 20px 20px;
+	background: white;
+	moz-box-shadow: 1px 1px 5px #888;
+	-webkit-box-shadow: 1px 1px 5px #888;
+	box-shadow: 1px 1px 5px #888;
+  border-bottom-left-radius:5px;
+  border-bottom-right-radius: 5px;
+}

@@ -1,0 +1,15 @@
+﻿@using UnityWeb.Resources.Dashboard
+@model UnityWeb.Models.Dashboard.ManCoFilterViewModel
+
+@using (Html.BeginForm("Index", "Dashboard"))
+{
+<div class="filterarea">
+    <div class="filterDiv floatleft">@Index.ManCoFilter</div>
+    <div class="col4 floatright noclear">
+        <div class="ddl">
+            @Html.DropDownListFor(x => x.SelectedManCoId, new SelectList(Model.ManCos, "Id", "DisplayName"), new { onchange = "$(this).parents('form').submit();" } )
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+}

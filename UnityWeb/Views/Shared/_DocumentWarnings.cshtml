@@ -1,0 +1,12 @@
+﻿@model UnityWeb.Models.Shared.DocumentWarningsViewModel 
+
+<div id="documentWarning">
+  @Html.HiddenFor(m => m.DocumentsAlreadyCheckedOut)
+  @Html.HiddenFor(m => m.DocumentAddToBasketErrors)
+  @Html.HiddenFor(m => m.DocumentsAlreadyApproved)
+  @Html.HiddenFor(m => m.DocumentsCheckedOutByOtherUser)
+  @Html.HiddenFor(m => m.DocumentsAlreadyRejected)
+  @Html.HiddenFor(m => m.DocumentsApproved)
+  @Html.HiddenFor(m => m.DocumentsRejected)
+  @Html.HiddenFor(m => m.BasketContainsDocumentFromAnotherManCo)
+</div>

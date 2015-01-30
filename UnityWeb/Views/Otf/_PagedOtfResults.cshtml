@@ -1,0 +1,30 @@
+﻿@using UnityWeb.Resources.Otf
+@model UnityWeb.Models.Otf.OtfItemsViewModel
+
+<div id="totalNumberOfOtfs">
+    <span>@Index.TotalItems @Model.PagingInfo.TotalItems</span>
+</div>
+
+<section class="accordion" style="margin-top: 5px; margin-bottom: 40px;">
+    <section class="pane">
+        <table>
+                <thead>
+        @foreach (var viewModel in Model.AppManCoEmails)
+        {
+                    <tr>
+                        @Html.Partial("_ShowSingleAppManCoEmail", viewModel)
+                    </tr>
+        }
+      </thead>
+            </table> 
+      @Html.Partial("_CreateAppManCoEmail", Model.AddAppManCoEmailViewModel)
+    </section>
+</section>
+<div id="results">
+      </div>
+<div class="pager">
+  @Html.Pager(Model.PagingInfo.ItemsPerPage, Model.PagingInfo.CurrentPage, Model.PagingInfo.TotalItems)
+      
+</div>
+<div class="clearfix"></div>
+  @Html.HiddenFor(m => Model.CurrentPage)

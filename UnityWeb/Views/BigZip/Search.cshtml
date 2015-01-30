@@ -1,0 +1,62 @@
+﻿@using UnityWeb.Resources.BigZip
+@model UnityWeb.Models.BigZip.BigZipsViewModel
+
+@{
+    ViewBag.Title = Search.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="hotsearch floatleft hotsearch2">
+    <ul>
+        <li class="on">@Search.DataLevel</li>
+        <li>@Search.GridLevel</li>
+        <li class="last">@Search.DocumentLevel</li>
+    </ul>
+</section>
+<div class="clearfix"></div>
+<section class="accordion">
+    <section class="pane">
+        <table>
+            <thead>
+                <tr>
+                    <th class="data1">DATAFILE NAME</th>
+                    <th class="data2">DOCUMENT SET ID</th>
+                    <th class="last"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var bigZipViewModel in this.Model.Files)
+                {
+                    <tr>
+                        <td colspan="3">
+                            <table class="subtable">
+                                <thead>
+                                    <tr>
+                                        <th class="data1">
+                                            @bigZipViewModel.FileName
+                                        </th>
+                                        <th class="data2">
+                                            @bigZipViewModel.DocumentSetId
+                                        </th>
+                                        <th class="last"><span class="moreinfo">&plus; more info</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="3">
+                                            <p>
+                                                <strong>RECEIVED:</strong>
+                                                @bigZipViewModel.Received
+                                                <br />
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </section>
+</section>

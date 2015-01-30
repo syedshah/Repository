@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts.Error" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts.Error" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://nt-arc1-dag.nd-rainham.com/Archive-WCF/services/Document.svc?xsd=xsd0" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="CustomFault">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorCode" type="xs:int" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TicketNumber" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CustomFault" nillable="true" type="tns:CustomFault" />
+</xs:schema>

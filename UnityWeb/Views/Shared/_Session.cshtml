@@ -1,0 +1,36 @@
+﻿@using UnityWeb.Resources.Global
+@using UnityWeb.Resources.Session
+@*<div id="sessiontimeout-warnig-old" title="Warning" style="padding-top: 5px; height: auto !important;">
+  <span>Your session is about to expire in
+    <span id="the_time" style="font-size: 1.1em;color: #ED9C28;"></span>seconds.
+    <br />
+    Do you want to continue ? </span>
+  <div style="padding: 10px 0 10px 0;">
+    <input type="button" class="btn"  onclick="javaScript: session.resetHandlers();"
+     value="Continue" />
+  </div>
+</div>*@
+
+<div id="sessionExpiryModal" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+@*    <span>Your session is about to expire in
+    <span id="the_time" style="font-size: 1.1em;color: #ED9C28;"></span>seconds.
+    <br />
+    Do you want to continue ? </span>
+  <div style="padding: 10px 0 10px 0;">
+    
+  </div>*@
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">@Expire.Title</h3>
+  </div>
+  <div class="modal-body">
+    <p>
+      <span>@Expire.SessionExpOne
+        <span id="the_time" style="font-size: 1.1em;color: #0044CC;"></span> @Expire.SessionExpTwo</span>
+      @Global.ContinueMsg
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button id="continue" class="btn btn-primary" onclick="javaScript: session.resetHandlers();" >@Global.Continue</button>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+﻿@model UnityWeb.Models.AutoApproval.ManCosApprovalViewModel
+@using UnityWeb.Resources.DocumentApproval
+
+@{
+  ViewBag.Title = "AutoApprovals";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Index.Message</h2>
+<div class="docapprovalsearch">
+  <div class="col3 floatleft marginright15">
+    <div class="ddl manCoFilter">
+      @Html.DropDownListFor(m => m.SelectedManCoId, new SelectList(Model.ManCos, "Id", "ManCoDisplay", "Select"), "MAN CO", new { Id = "SelectManCo" })
+      <div>
+        @Html.ValidationMessageFor(m => m.SelectedManCoId)
+      </div>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+</div>
+<div id="manCoDocumentApprovals">
+</div>
+
+@section scripts {
+    <script src="@Url.Content("~/Scripts/AutoApproval/autoApproval.js")" type="text/javascript"></script>
+}
+

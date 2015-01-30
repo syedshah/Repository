@@ -1,0 +1,30 @@
+﻿@using UnityWeb.Resources.User
+@model UnityWeb.Models.User.UserViewModel
+
+@{
+    ViewBag.Title = Login.Title;
+    Layout = "~/Views/Account/_Layout.cshtml";
+}
+
+<div class="login">
+  @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+  {
+    <div class="col5 marginauto">
+      <p>
+        @Html.LabelFor(m => m.UserName, Login.Username, new { @class = "col2 floatleft" } )
+        @Html.TextBoxFor(m => m.UserName, new { @class = "col3 floatright txt" } )
+      </p>
+      <div>@Html.ValidationMessageFor(m => m.UserName)</div>
+      <div class="clearfix"></div>
+      <p>
+        @Html.LabelFor(m => m.Password, Login.Password, new { @class = "col2 floatleft" } )
+        @Html.PasswordFor(m => m.Password, new { @class = "col3 floatright txt" } )
+        <div>@Html.ValidationMessageFor(m => m.Password)</div>
+      </p>
+      <div class="clearfix"></div>
+      <a href="dashboard.html" class="floatright submitbtn txtcentre">Submit</a>
+      <p class="forgottenpassword"><a href="#">Forgotten Password?</a></p>
+      <div class="clearfix"></div>
+    </div>
+  }
+</div>

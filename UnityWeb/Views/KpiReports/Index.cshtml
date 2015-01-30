@@ -1,0 +1,16 @@
+﻿@using UnityWeb.Resources.KpiReports
+@model UnityWeb.Models.KpiReport.KpiReportViewModel
+
+@{
+  ViewBag.Title = KpiReports.Title;
+}
+
+<section>
+  <h2 class="header">@KpiReports.Title</h2>
+</section>
+
+@using (Html.BeginForm("Run", "KpiReports", FormMethod.Post))
+{
+  @Html.Partial("_KpiSearch", Model)
+}
+

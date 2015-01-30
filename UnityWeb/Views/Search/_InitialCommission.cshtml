@@ -1,0 +1,17 @@
+﻿@model UnityWeb.Models.Search.SearchViewModel
+
+
+<div id="initialCommission" class="hidden">
+  <div class="col3 floatleft marginright15">
+      @Html.TextBoxFor(x => x.EmailAddress, new { @class = "filtertxt", @placeholder = "Email Address" })
+    </div>
+    <div class="col3 floatleft marginright12 noclear">
+      @Html.TextBoxFor(x => x.FaxNumber, new { @class = "filtertxt", @placeholder = "Fax Number" })
+    </div>
+    <div class="col3 floatleft noclear">
+      @Html.EditorFor(x => x.ContractDate)
+    </div>
+    <div class="col3 floatright noclear">
+      @Html.TextBoxFor(x => x.DocumentNumber, new { @class = "filtertxt", @placeholder = "Document Number" })
+    </div>
+</div>

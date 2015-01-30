@@ -1,0 +1,17 @@
+﻿@using UnityWeb.Models.User
+@using UnityWeb.Resources.User
+@model UnityWeb.Models.User.UsersViewModel
+
+@{
+  ViewBag.Title = Index.Title;
+}
+
+<div class="floatright">
+  <span id="showingDocumentsSpan">@Index.ShowingUsers @Model.PagingInfo.StartRow - @Model.PagingInfo.EndRow</span>
+</div>
+
+<div id="cartDocumentData">
+  @Html.Partial("_PagedUserResults", Model)
+</div>
+<div class="clearfix"></div>
+

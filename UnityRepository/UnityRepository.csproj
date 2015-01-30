@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B1835AFE-0378-40E7-BD96-1915C8CC36E9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UnityRepository</RootNamespace>
+    <AssemblyName>UnityRepository</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release'">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Test\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Uat|AnyCPU'">
+    <OutputPath>bin\Uat\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.1.0.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.1.0.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configuration\FileConfiguration.cs" />
+    <Compile Include="Contexts\UnityDbContext.cs" />
+    <Compile Include="Initializers\FileTestInitializer.cs" />
+    <Compile Include="Initializers\UnityDbInitializer.cs" />
+    <Compile Include="Interfaces\ISessionRepository.cs" />
+    <Compile Include="Interfaces\IHouseHoldRepository.cs" />
+    <Compile Include="Interfaces\IAppManCoEmailRepository.cs" />
+    <Compile Include="Interfaces\IExportlRepository.cs" />
+    <Compile Include="Interfaces\IHouseHoldingRunRepository.cs" />
+    <Compile Include="Interfaces\IRejectionRepository.cs" />
+    <Compile Include="Interfaces\IApplicationUserRepository.cs" />
+    <Compile Include="Interfaces\IApprovalRepository.cs" />
+    <Compile Include="Interfaces\ICartItemRepository.cs" />
+    <Compile Include="Interfaces\ICheckOutRepository.cs" />
+    <Compile Include="Interfaces\IAutoApprovalRepository.cs" />
+    <Compile Include="Interfaces\IDocumentRepository.cs" />
+    <Compile Include="Interfaces\IDomicileRepository.cs" />
+    <Compile Include="Interfaces\IGlobalSettingRepository.cs" />
+    <Compile Include="Interfaces\IIdentityRoleRepository.cs" />
+    <Compile Include="Interfaces\INewsTickerRepository.cs" />
+    <Compile Include="Interfaces\IPasswordHistoryRepository.cs" />
+    <Compile Include="Interfaces\ISecurityAnswerRepository.cs" />
+    <Compile Include="Interfaces\ISubDocTypeRepository.cs" />
+    <Compile Include="Interfaces\IManCoRepository.cs" />
+    <Compile Include="Interfaces\IApplicationRepository.cs" />
+    <Compile Include="Interfaces\IConFileRepository.cs" />
+    <Compile Include="Interfaces\IDocTypeRepository.cs" />
+    <Compile Include="Interfaces\IGridRunRepository.cs" />
+    <Compile Include="Interfaces\IFileSyncRepository.cs" />
+    <Compile Include="Interfaces\IIndexRepository.cs" />
+    <Compile Include="Interfaces\IXmlFileRepository.cs" />
+    <Compile Include="Interfaces\IZipFileRepository.cs" />
+    <Compile Include="Interfaces\ISecurityQuestionRepository.cs" />
+    <Compile Include="Migrations\201401091105509_InitialCreate.cs" />
+    <Compile Include="Migrations\201401091105509_InitialCreate.Designer.cs">
+      <DependentUpon>201401091105509_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201401091533263_removedDocumentGuidFromDocumentTable.cs" />
+    <Compile Include="Migrations\201401091533263_removedDocumentGuidFromDocumentTable.Designer.cs">
+      <DependentUpon>201401091533263_removedDocumentGuidFromDocumentTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201401210955178_CreatedAppManCoEmailEntity.cs" />
+    <Compile Include="Migrations\201401210955178_CreatedAppManCoEmailEntity.Designer.cs">
+      <DependentUpon>201401210955178_CreatedAppManCoEmailEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201401311536291_AddedHouseHoldingEntities.cs" />
+    <Compile Include="Migrations\201401311536291_AddedHouseHoldingEntities.Designer.cs">
+      <DependentUpon>201401311536291_AddedHouseHoldingEntities.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201402031459220_AddedHouseHoldEntitytoDcoument.cs" />
+    <Compile Include="Migrations\201402031459220_AddedHouseHoldEntitytoDcoument.Designer.cs">
+      <DependentUpon>201402031459220_AddedHouseHoldEntitytoDcoument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201402051443392_ModifiedHouseHoldEntity.cs" />
+    <Compile Include="Migrations\201402051443392_ModifiedHouseHoldEntity.Designer.cs">
+      <DependentUpon>201402051443392_ModifiedHouseHoldEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201402061026522_ModifiedDocumentEntityToAddHouseHoldingRun.cs" />
+    <Compile Include="Migrations\201402061026522_ModifiedDocumentEntityToAddHouseHoldingRun.Designer.cs">
+      <DependentUpon>201402061026522_ModifiedDocumentEntityToAddHouseHoldingRun.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201402061552459_ModifiedDocumentEntityRelationShips.cs" />
+    <Compile Include="Migrations\201402061552459_ModifiedDocumentEntityRelationShips.Designer.cs">
+      <DependentUpon>201402061552459_ModifiedDocumentEntityRelationShips.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201402061602223_ModifiedDocumentEntityRelationShipsRemovedCheckOutId.cs" />
+    <Compile Include="Migrations\201402061602223_ModifiedDocumentEntityRelationShipsRemovedCheckOutId.Designer.cs">
+      <DependentUpon>201402061602223_ModifiedDocumentEntityRelationShipsRemovedCheckOutId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201402061613142_ModifiedHouseHoldEntity1.cs" />
+    <Compile Include="Migrations\201402061613142_ModifiedHouseHoldEntity1.Designer.cs">
+      <DependentUpon>201402061613142_ModifiedHouseHoldEntity1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201402071627474_ChangedGridRunHouseHoldingRunRelationShip.cs" />
+    <Compile Include="Migrations\201402071627474_ChangedGridRunHouseHoldingRunRelationShip.Designer.cs">
+      <DependentUpon>201402071627474_ChangedGridRunHouseHoldingRunRelationShip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201402171112318_ChangedAutoApprovalEntity.cs" />
+    <Compile Include="Migrations\201402171112318_ChangedAutoApprovalEntity.Designer.cs">
+      <DependentUpon>201402171112318_ChangedAutoApprovalEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201402171436397_ChangedAutoApprovalEntityName.cs" />
+    <Compile Include="Migrations\201402171436397_ChangedAutoApprovalEntityName.Designer.cs">
+      <DependentUpon>201402171436397_ChangedAutoApprovalEntityName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201403311442293_addedMaxLogInNumberAttemptsProperties.cs" />
+    <Compile Include="Migrations\201403311442293_addedMaxLogInNumberAttemptsProperties.Designer.cs">
+      <DependentUpon>201403311442293_addedMaxLogInNumberAttemptsProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201407161628379_AddedSessionEntity.cs" />
+    <Compile Include="Migrations\201407161628379_AddedSessionEntity.Designer.cs">
+      <DependentUpon>201407161628379_AddedSessionEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201408131326102_AddedDoNotPrintFlag.cs" />
+    <Compile Include="Migrations\201408131326102_AddedDoNotPrintFlag.Designer.cs">
+      <DependentUpon>201408131326102_AddedDoNotPrintFlag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201408141643276_ChangedSessionEntityForeignKey.cs" />
+    <Compile Include="Migrations\201408141643276_ChangedSessionEntityForeignKey.Designer.cs">
+      <DependentUpon>201408141643276_ChangedSessionEntityForeignKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201409111623432_AddedAppManCoEmailHistory.cs" />
+    <Compile Include="Migrations\201409111623432_AddedAppManCoEmailHistory.Designer.cs">
+      <DependentUpon>201409111623432_AddedAppManCoEmailHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201409111631476_ChangedAppManCoEmailHistory.cs" />
+    <Compile Include="Migrations\201409111631476_ChangedAppManCoEmailHistory.Designer.cs">
+      <DependentUpon>201409111631476_ChangedAppManCoEmailHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\MigrationsContextFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ApplicationRepository.cs" />
+    <Compile Include="Repositories\ApplicationUserRepository.cs" />
+    <Compile Include="Repositories\AppManCoEmailRepository.cs" />
+    <Compile Include="Repositories\ApprovalRepository.cs" />
+    <Compile Include="Repositories\CartItemRepository.cs" />
+    <Compile Include="Repositories\CheckOutRepository.cs" />
+    <Compile Include="Repositories\ConFileRepository.cs" />
+    <Compile Include="Repositories\SessionRepository.cs" />
+    <Compile Include="Repositories\HouseHoldRepository.cs" />
+    <Compile Include="Repositories\ExportRepository.cs" />
+    <Compile Include="Repositories\HouseHoldingRunRepository.cs" />
+    <Compile Include="Repositories\RejectionRepository.cs" />
+    <Compile Include="Repositories\DocTypeRepository.cs" />
+    <Compile Include="Repositories\AutoApprovalRepository.cs" />
+    <Compile Include="Repositories\DocumentRepository.cs" />
+    <Compile Include="Repositories\DomicileRepository.cs" />
+    <Compile Include="Repositories\FileSyncRepository.cs" />
+    <Compile Include="Repositories\GlobalSettingRepository.cs" />
+    <Compile Include="Repositories\GridRunRepository.cs" />
+    <Compile Include="Repositories\IdentityRoleRepository.cs" />
+    <Compile Include="Repositories\IndexRepository.cs" />
+    <Compile Include="Repositories\ManCoRepository.cs" />
+    <Compile Include="Repositories\NewsTickerRepository.cs" />
+    <Compile Include="Repositories\PasswordHistoryRepository.cs" />
+    <Compile Include="Repositories\SecurityAnswerRepository.cs" />
+    <Compile Include="Repositories\SecurityQuestionRepository.cs" />
+    <Compile Include="Repositories\SubDocTypeRepository.cs" />
+    <Compile Include="Repositories\XmlFileRepository.cs" />
+    <Compile Include="Repositories\ZipFileRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EFRepository\EFRepository.csproj">
+      <Project>{899BE89B-0D9F-4854-BACF-23CC865D396D}</Project>
+      <Name>EFRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{BDA2C703-1128-4B55-9756-EAEF257F1271}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Exceptions\Exceptions.csproj">
+      <Project>{63D76CC2-2CD5-466E-8BA7-FA57829EC8E0}</Project>
+      <Name>Exceptions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FileRepository\FileRepository.csproj">
+      <Project>{65dbda93-71d7-4a5c-ace3-654a737a5175}</Project>
+      <Name>FileRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FileSystemInterfaces\FileSystemInterfaces.csproj">
+      <Project>{a80e7e00-792a-4292-9c29-bc9eae72d89b}</Project>
+      <Name>FileSystemInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repository\Repository.csproj">
+      <Project>{AAF4CE14-9F63-49F2-8FC4-75244991698F}</Project>
+      <Name>Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SystemFileAdapter\SystemFileAdapter.csproj">
+      <Project>{4fbc10a5-c7a8-4dc9-9b68-e598e4b4e1b7}</Project>
+      <Name>SystemFileAdapter</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201401091105509_InitialCreate.resx">
+      <DependentUpon>201401091105509_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201401091533263_removedDocumentGuidFromDocumentTable.resx">
+      <DependentUpon>201401091533263_removedDocumentGuidFromDocumentTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201401210955178_CreatedAppManCoEmailEntity.resx">
+      <DependentUpon>201401210955178_CreatedAppManCoEmailEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201401311536291_AddedHouseHoldingEntities.resx">
+      <DependentUpon>201401311536291_AddedHouseHoldingEntities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201402031459220_AddedHouseHoldEntitytoDcoument.resx">
+      <DependentUpon>201402031459220_AddedHouseHoldEntitytoDcoument.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201402051443392_ModifiedHouseHoldEntity.resx">
+      <DependentUpon>201402051443392_ModifiedHouseHoldEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201402061026522_ModifiedDocumentEntityToAddHouseHoldingRun.resx">
+      <DependentUpon>201402061026522_ModifiedDocumentEntityToAddHouseHoldingRun.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201402061552459_ModifiedDocumentEntityRelationShips.resx">
+      <DependentUpon>201402061552459_ModifiedDocumentEntityRelationShips.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201402061602223_ModifiedDocumentEntityRelationShipsRemovedCheckOutId.resx">
+      <DependentUpon>201402061602223_ModifiedDocumentEntityRelationShipsRemovedCheckOutId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201402061613142_ModifiedHouseHoldEntity1.resx">
+      <DependentUpon>201402061613142_ModifiedHouseHoldEntity1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201402071627474_ChangedGridRunHouseHoldingRunRelationShip.resx">
+      <DependentUpon>201402071627474_ChangedGridRunHouseHoldingRunRelationShip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201402171112318_ChangedAutoApprovalEntity.resx">
+      <DependentUpon>201402171112318_ChangedAutoApprovalEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201402171436397_ChangedAutoApprovalEntityName.resx">
+      <DependentUpon>201402171436397_ChangedAutoApprovalEntityName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201403311442293_addedMaxLogInNumberAttemptsProperties.resx">
+      <DependentUpon>201403311442293_addedMaxLogInNumberAttemptsProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407161628379_AddedSessionEntity.resx">
+      <DependentUpon>201407161628379_AddedSessionEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408131326102_AddedDoNotPrintFlag.resx">
+      <DependentUpon>201408131326102_AddedDoNotPrintFlag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408141643276_ChangedSessionEntityForeignKey.resx">
+      <DependentUpon>201408141643276_ChangedSessionEntityForeignKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409111623432_AddedAppManCoEmailHistory.resx">
+      <DependentUpon>201409111623432_AddedAppManCoEmailHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409111631476_ChangedAppManCoEmailHistory.resx">
+      <DependentUpon>201409111631476_ChangedAppManCoEmailHistory.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

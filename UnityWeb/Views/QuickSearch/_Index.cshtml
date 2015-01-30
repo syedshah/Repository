@@ -1,0 +1,28 @@
+﻿@model UnityWeb.Models.QuickSearch.QuickSearchViewModel
+
+@using (Html.BeginForm("Search", "GridRun", FormMethod.Get))
+{
+  <div class="gridtxt floatleft">
+    @Html.TextBoxFor(x => x.Grid, new { @placeholder = "GRID SEARCH", data_autocomplete = Url.Action("Grid", "QuickSearch") })
+  </div>
+  <input type="submit" class="gridbtn floatleft noclear" value="GO" />
+}
+
+@using (Html.BeginForm("Search", "File", FormMethod.Get))
+{
+  <div class="gridtxt floatleft noclear">
+    @Html.TextBoxFor(x => x.File, new {@placeholder="FILE NAME SEARCH", data_autocomplete = Url.Action("File", "QuickSearch") })
+  </div>
+  <input type="submit" class="gridbtn floatleft noclear" value="GO" />
+}
+
+@*@using (Html.BeginForm("Search", "BigZip", FormMethod.Get))
+{
+  <div class="gridtxt floatleft noclear">
+    @Html.TextBoxFor(x => x.BigZip, new {@placeholder="BIG ZIP SEARCH", data_autocomplete = Url.Action("BigZip", "QuickSearch") })
+  </div>
+  <input type="submit" class="gridbtn floatleft noclear" value="GO" />
+}*@
+
+
+                

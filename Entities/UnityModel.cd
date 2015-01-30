@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Entities.File.ConFile" Collapsed="true">
+    <Position X="8.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>File\ConFile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.File.XmlFile" Collapsed="true">
+    <Position X="10.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEACAAAEAgAAAAAAAAAAAAAAAAAEAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>File\XmlFile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.File.InputFile" Collapsed="true">
+    <Position X="10.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACQAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>File\InputFile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.File.ZipFile" Collapsed="true">
+    <Position X="12.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>File\ZipFile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.DocType" Collapsed="true">
+    <Position X="14.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DocType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.Domicile" Collapsed="true">
+    <Position X="16.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domicile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.ManCo" Collapsed="true">
+    <Position X="14.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ManCo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

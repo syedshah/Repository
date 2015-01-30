@@ -1,0 +1,73 @@
+﻿@using UnityWeb.HtmlHelpers
+@using UnityWeb.Resources.Document
+@model UnityWeb.Models.Document.DocumentsViewModel
+
+<div class="floatright">
+    
+    @Search.ShowingDocuments
+    @if (Model.Documents.Count == 0)
+    {
+        <span id="showingDocumentsSpan">@Model.PagingInfo.EndRow - @Model.PagingInfo.EndRow </span>
+    }
+    else if (@Model.Documents.Count < 10)
+    {
+        <span id="showingDocumentsSpan">@Model.PagingInfo.StartRow - @Model.PagingInfo.TotalItems </span>
+    }
+    else 
+    {
+        <span id="showingDocumentsSpan">@Model.PagingInfo.StartRow - @Model.PagingInfo.EndRow </span>
+    }
+       
+</div>
+<div id="totalNumberOfDocuments">
+  @if (Model.GridSearch != null)
+  {
+    <span>@Search.DocumentsInGrid @Model.DocumentsInGrid</span><br/>
+    <span>@Search.DocsAwaitingApproval @Model.DocsAwaitingApproval</span><br/>
+    <span>@Search.DocsApproved @Model.DocsApproved</span>
+  }
+  else
+    {
+      <span>@Search.TotalItems @Model.PagingInfo.TotalItems</span>
+    }
+
+</div>
+<span id="searchDocError">@TempData["tooManyDocs"] </span>
+<section class="accordion">
+  @Html.HiddenFor(m => m.GridSearch)
+    <section class="pane">
+      <table id="searchResults" class="documents">
+        <thead>
+          <tr>
+            <th style="width: 1%;">
+               @Html.BeginDiv("Admin,dstadmin,Governor", new Dictionary<string, object>{{"class","checkOutDocDiv"}})
+              <input type='checkbox' id='selectAll' text="Select All">
+              @Html.EndDiv()
+            </th>
+            <th style="width: 10%;" class="txtcentre">@Search.DocType</th>
+            <th style="width: 15%;" class="txtcentre">@Search.DocSubType</th>
+            <th style="width: 20%;" class="txtcentre">@Search.ManCo</th>
+            <th style="width: 15%;" class="txtcentre">@Search.AccountNumber</th>
+            <th style="width: 30%;" class="txtcentre">@Search.InvestorReference</th>
+            <th style="width: 30%;" class="txtcentre">@Search.MailPrintFlag</th>
+            <th style="width: 30%;" class="txtcentre">@Search.AddresseeSubType</th>
+            <th style="width: 10%;" class="txtcentre">@Search.ApprovalStatus</th>
+            <th style="width: 7%;" class="txtcentre">@Search.View</th>
+            <th style="width: 7%;" class="txtcentre">@Search.Progress</th>
+            <th style="width: 7%;" class="txtcentre">@Search.Grid</th>
+          </tr>
+        </thead>
+        <tbody>
+          @Html.Partial("_ShowSingleDocument", Model.Documents)    
+        </tbody>
+      </table>
+      <div id="results"></div>
+      <div id="status" title="Document Status"></div>
+    </section>
+</section>
+<div id="docPager" class="pager">
+  @Html.Pager(Model.PagingInfo.ItemsPerPage, Model.PagingInfo.CurrentPage, Model.PagingInfo.TotalItems)
+</div>
+
+
+

@@ -1,0 +1,12 @@
+﻿@model UnityWeb.Models.CartItem.CartItemSummaryViewModel
+
+@{
+    Layout = null;
+}
+
+<span class="caption">@Model.Total            
+</span>
+<div class="basket">
+  @Html.ActionLink(" ", "Index", "CartItem",  new { returnUrl = Request.Url.PathAndQuery }, null)
+  @Html.Partial("_DocumentWarnings", Model.DocumentWarningsViewModel)
+</div>

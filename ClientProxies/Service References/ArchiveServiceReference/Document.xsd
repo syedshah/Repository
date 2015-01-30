@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://nt-arc1-dag.nd-rainham.com/Archive-WCF/services/Document.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts.Document" />
+  <xs:complexType name="DocumentSearchResultsData">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts.Document" minOccurs="0" name="DocumentList" nillable="true" type="q1:ArrayOfIndexedDocumentData" />
+      <xs:element minOccurs="0" name="DocumentsFoundOverLimit" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MoreRecords" type="xs:int" />
+      <xs:element minOccurs="0" name="RecordsFound" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalRecordsFound" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DocumentSearchResultsData" nillable="true" type="tns:DocumentSearchResultsData" />
+  <xs:complexType name="ArrayOfIndexMapped">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="IndexMapped" nillable="true" type="tns:IndexMapped" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfIndexMapped" nillable="true" type="tns:ArrayOfIndexMapped" />
+  <xs:complexType name="IndexMapped">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IndexName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IndexValue" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IndexMapped" nillable="true" type="tns:IndexMapped" />
+  <xs:complexType name="ArrayOfIndexSearchCriteraData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="IndexSearchCriteraData" nillable="true" type="tns:IndexSearchCriteraData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfIndexSearchCriteraData" nillable="true" type="tns:ArrayOfIndexSearchCriteraData" />
+  <xs:complexType name="IndexSearchCriteraData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Grid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SearchValue" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IndexSearchCriteraData" nillable="true" type="tns:IndexSearchCriteraData" />
+  <xs:complexType name="DocumentSearchResultsIndexedData">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts.Document" minOccurs="0" name="DocumentList" nillable="true" type="q2:ArrayOfIndexedDocumentData" />
+      <xs:element minOccurs="0" name="DocumentsFoundOverLimit" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MoreRecords" type="xs:int" />
+      <xs:element minOccurs="0" name="RecordsFound" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalRecordsFound" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DocumentSearchResultsIndexedData" nillable="true" type="tns:DocumentSearchResultsIndexedData" />
+  <xs:complexType name="ArrayOfIndexNameCriteriaData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="IndexNameCriteriaData" nillable="true" type="tns:IndexNameCriteriaData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfIndexNameCriteriaData" nillable="true" type="tns:ArrayOfIndexNameCriteriaData" />
+  <xs:complexType name="IndexNameCriteriaData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Grid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IndexName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SearchValue" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IndexNameCriteriaData" nillable="true" type="tns:IndexNameCriteriaData" />
+  <xs:complexType name="ArrayOfIndexIdCriteriaData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="IndexIdCriteriaData" nillable="true" type="tns:IndexIdCriteriaData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfIndexIdCriteriaData" nillable="true" type="tns:ArrayOfIndexIdCriteriaData" />
+  <xs:complexType name="IndexIdCriteriaData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Grid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IndexId" type="xs:int" />
+      <xs:element minOccurs="0" name="SearchValue" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IndexIdCriteriaData" nillable="true" type="tns:IndexIdCriteriaData" />
+  <xs:complexType name="ApplicationInfoData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ArchiveWcfServices.DataContracts.Document" minOccurs="0" name="Indexes" nillable="true" type="q3:ArrayOfIndexDefinitionData" />
+      <xs:element minOccurs="0" name="IsDam" type="xs:boolean" />
+      <xs:element minOccurs="0" name="StreamName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApplicationInfoData" nillable="true" type="tns:ApplicationInfoData" />
+  <xs:complexType name="ArrayOfDropDownItemData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DropDownItemData" nillable="true" type="tns:DropDownItemData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDropDownItemData" nillable="true" type="tns:ArrayOfDropDownItemData" />
+  <xs:complexType name="DropDownItemData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ValueId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DropDownItemData" nillable="true" type="tns:DropDownItemData" />
+</xs:schema>

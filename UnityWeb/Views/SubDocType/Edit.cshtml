@@ -1,0 +1,55 @@
+﻿@using UnityWeb.Resources.SubDocType
+@model UnityWeb.Models.DocType.EditSubDocTypeViewModel
+
+@{
+    ViewBag.Title = Edit.Title;
+}
+
+<section class="accordion" style="margin-top: 5px;">
+    <section class="pane">
+        <table>
+            <thead>
+                <tr>
+                    <th class="data6">@Edit.Code</th>
+                    <th class="data6">@Edit.Description</th>
+                    <th class="data6">@Edit.DocType</th>
+                    <th class="last"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="4">
+                        @TempData["comment"]
+                        @using (Html.BeginForm("Update", "SubDocType", FormMethod.Post, new { id = "form" }))
+                        {
+                            @Html.HiddenFor(m => m.SubDocTypeId)
+                            @Html.HiddenFor(m => m.Code)
+                            <fieldset>
+                                <legend></legend>
+                                <div class="field4 floatleft">
+                                    @Html.LabelFor(m => m.Code)
+                                    @Html.ValidationMessageFor(m => m.Code)
+                                </div>
+                                <div class="field4 floatleft noclear">
+                                    @Html.TextBoxFor(m => m.Description)
+                                    @Html.ValidationMessageFor(m => m.Description)
+                                </div>
+                                <div class="field4 floatleft noclear">
+                                    @Html.DropDownListFor(m => m.DocTypeId, new SelectList(Model.DocTypes, "Id", "Code", "Select"))
+                                    <div>
+                                        @Html.ValidationMessageFor(m => m.DocTypeId)
+                                    </div>
+                                </div>
+                                <div class="field3 floatright">
+                                    <input type="submit" value="@Edit.Save" class="insertbtn" />
+                                </div>
+                                <div class="clearfix"></div>
+                            </fieldset>
+                        }
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</section>
+

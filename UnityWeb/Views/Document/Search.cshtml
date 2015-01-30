@@ -1,0 +1,135 @@
+﻿@using UnityWeb.HtmlHelpers
+@using UnityWeb.Resources.Document
+@using UnityWeb.Resources.Global
+@model UnityWeb.Models.Document.DocumentsViewModel
+
+@{
+    ViewBag.Title = Search.Title;
+}
+
+<div id="addGRIDToCartUrl" data-request-url="@Url.Action("AddGridToCart", "CartItem")"></div>
+<div id="addToCartUrl" data-request-url="@Url.Action("AddToCart", "CartItem")"></div>
+<div id="showPDFUrl" data-request-url="@Url.Action("PdfContainer", "Document")"></div>
+<div id="showDocumentStatusUrl" data-request-url="@Url.Action("Status", "Document")"></div>
+
+<section class="hotsearch floatleft hotsearch2">
+    <ul>
+        <li>@Search.DataLevel</li>
+        <li>@Search.GridLevel</li>
+        <li class="last on">@Search.DocumentLevel</li>
+    </ul>
+</section>
+<div class="clearfix"></div>
+@{
+    if (Model.GridSearch != null)
+    {
+        <p>@Search.Grid: @Model.GridSearch </p>
+    }
+}
+<div id="documentData">
+    @Html.Partial("_PagedDocumentResults", Model)
+</div>
+@Html.BeginDiv("Admin,dstadmin,Governor")
+@Html.HiddenFor(m => Model.GridSearch, new { @class = "gridSearch" })
+<div class="actionbtn">
+    <ul class="actiondd">
+        <li><a href="#" class="btndropdown">Actions</a>
+            <ul>
+              <li><a href="" id="addToCart">@Search.AddToBasket</a></li>
+              <li><a href="" id="addGridToCart">@Search.AddGridToBasket</a></li>
+                @{
+                    if (Model.GridSearch != null) {
+                        <li><a href="" id="approveGrid">@Search.ApproveGrid</a></li>
+                    }
+                }
+                <li><a href="" id="approveSelected">@Search.ApproveDocument</a></li>
+                @{
+                    if (Model.GridSearch != null) {
+                        <li><a href="" id="rejectGrid">@Search.RejectGrid</a></li>
+                    }
+                }
+                <li><a href="" id="rejectSelected">@Global.RejectDocument</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+@Html.EndDiv()
+<div class="clearfix"></div>
+
+<!-- Modal -->
+<div id="approveGridModal" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">@Search.ApproveGrid</h3>
+  </div>
+  <div class="modal-body">
+    <p>@Search.ApproveGridMsg</p>
+  </div>
+  <div class="modal-footer">
+    <button id="confirm" class="btn btn-primary">@Global.Confirm</button>
+    <button id="cancel" class="btn" data-dismiss="modal" aria-hidden="true">@Global.Decline</button>
+  </div>
+</div>
+<div id="approveSelectedModal" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">@Search.ApproveDocument</h3>
+  </div>
+  <div class="modal-body">
+    <p>@Global.ApproveSelectedMsg</p>
+  </div>
+  <div class="modal-footer">
+    <button id="confirmApproveSelected" class="btn btn-primary">@Global.Confirm</button>
+    <button id="cancel" class="btn" data-dismiss="modal" aria-hidden="true">@Global.Decline</button>
+  </div>
+</div>
+<div id="rejectGridModal" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">@Search.RejectGrid</h3>
+  </div>
+  <div class="modal-body">
+    <p>@Search.RejectGridMsg</p>
+  </div>
+  <div class="modal-footer">
+    <button id="confirm" class="btn btn-primary">@Global.Confirm</button>
+    <button id="cancel" class="btn" data-dismiss="modal" aria-hidden="true">@Global.Decline</button>
+  </div>
+</div>
+<div id="rejectSelectedModal" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">@Global.RejectDocument</h3>
+  </div>
+  <div class="modal-body">
+    <p>@Global.RejectSelectedMsg</p>
+  </div>
+  <div class="modal-footer">
+    <button id="confirmRejectSelected" class="btn btn-primary">@Global.Confirm</button>
+    <button id="cancel" class="btn" data-dismiss="modal" aria-hidden="true">@Global.Decline</button>
+  </div>
+</div>
+<div id="pleaseSelectModal" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">@Global.PleaseSelect</h3>
+  </div>
+  <div class="modal-body">
+    <p>@Global.PleaseSelect</p>
+  </div>
+  <div class="modal-footer">
+    <button id="continue" class="btn btn-primary">@Global.Continue</button>
+  </div>
+</div>
+<div id="manCoConflictModal" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">@Global.CannotAdd</h3>
+  </div>
+  <div class="modal-body">
+    <p>@Global.ManCoIssue</p>
+  </div>
+  <div class="modal-footer">
+    <button id="continue" class="btn btn-primary">@Global.Continue</button>
+  </div>
+</div>

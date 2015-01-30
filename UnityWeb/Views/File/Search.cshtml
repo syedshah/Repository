@@ -1,0 +1,67 @@
+﻿@using UnityWeb.Resources.File
+@model UnityWeb.Models.File.FilesViewModel
+
+@{
+    ViewBag.Title = Search.Title;
+}
+
+<section class="hotsearch floatleft hotsearch2">
+    <ul>
+        <li class="on">@Search.DataLevel</li>
+        <li>@Search.GridLevel</li>
+        <li class="last">@Search.DocumentLevel</li>
+    </ul>
+</section>
+<div class="clearfix"></div>
+<section class="accordion">
+    <section class="pane">
+        <table>
+            <thead>
+                <tr>
+                    <th class="data1">DATAFILE NAME</th>
+                    <th class="data2">PROCESSED GRID</th>
+                    <th class="last"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var fileViewModel in this.Model.Files)
+                {
+                    <tr>
+                        <td colspan="3">
+                            <table class="subtable">
+                                <thead>
+                                    <tr>
+                                        <th class="data1">
+                                            @fileViewModel.FileName
+                                        </th>
+                                        <th class="data2">
+                                            @Html.ActionLink(@fileViewModel.ProcessesGrid, "Search", "GridRun", new { grid = fileViewModel.ProcessesGrid }, null)
+                                        </th>
+                                        <th class="last"><span class="moreinfo">+ more info</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="3">
+                                            <p>
+                                                <strong>RECEIVED:</strong>
+                                                @fileViewModel.Received
+                                                <br />
+                                                <strong>ALLOCATED:</strong>
+                                                @fileViewModel.Allocated
+                                                <br />
+                                                <strong>ALLOCATOR GRID:</strong>
+                                                @fileViewModel.AllocatorGrid
+                                                <br />
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </section>
+</section>

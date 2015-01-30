@@ -1,0 +1,39 @@
+﻿@using UnityWeb.Resources.Password
+@model UnityWeb.Models.Password.ChangePasswordModel
+
+@{
+    ViewBag.Title = "Change";
+    Layout = "~/Views/Session/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Change", "Password", FormMethod.Post))
+{
+    <div class="col5 marginauto">
+        @Html.HiddenFor(m => m.UserId)
+        <p>
+            @Html.LabelFor(m => m.Password, Change.Password, new { @class = "col1half floatleft" }) <a class="help floatleft noclear" id="PasswordHelp">?</a>
+            @Html.PasswordFor(m => m.Password, new { @class = "col3 floatright txt" })
+        </p>
+        <div class="clearfix"></div>
+        <p>@Html.ValidationMessageFor(m => m.Password)</p> 
+        <div class="clearfix"></div>
+
+        <p>
+            @Html.LabelFor(m => m.ConfirmPassword, Change.ConfirmPassword, new { @class = "col2 floatleft" })
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "col3 floatright txt" })
+        </p>
+        <p>@Html.ValidationMessageFor(m => m.ConfirmPassword)</p>
+        <div class="clearfix"></div>
+        <input type="submit" class="floatright submitbtn txtcentre" value="Submit" />
+        <div class="clearfix"></div>
+    </div>
+}
+
+<div id="password-popover">
+    @Html.Partial("_PasswordComplexity")
+</div>
+
+
+@section Scripts {
+<script src="@Url.Content("~/Scripts/User/user.js") type="text/javascript""></script>
+}

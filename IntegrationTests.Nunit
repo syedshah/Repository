@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<NUnitProject>
+  <Settings activeconfig="Debug"/>
+  <Config name="Debug">
+    <assembly path="ClientProxyTests\bin\Debug\ClientProxyTests.dll"/>
+    <assembly path="EFRepositoryTests\bin\Debug\EFRepositoryTests.dll"/>
+  </Config>  
+  <Config name="Release">
+    <assembly path="ClientProxyTests\bin\Release\ClientProxyTests.dll"/>
+    <assembly path="EFRepositoryTests\bin\Release\EFRepositoryTests.dll"/>
+  </Config>
+</NUnitProject>

@@ -1,0 +1,61 @@
+﻿@using UnityWeb.Models.KpiReport
+@using UnityWeb.Resources.KpiReports
+@model UnityWeb.Models.KpiReport.KpiReportsDataViewModel
+
+@{
+  ViewBag.Title = KpiReports.Title;
+}
+
+<section>
+  <h2 class="header">@KpiReports.Title</h2>
+</section>
+
+@using (Html.BeginForm("Run", "KpiReports", FormMethod.Post))
+{
+  @Html.Partial("_KpiSearch", Model.KpiReportViewModel)
+  <input type="submit" class="filterbtnReport"  title="Export" value="Export" name="submitButton" @{if (Model.KpiReport.Count() == 0)
+                                                                                               {
+                                                                                                 @:disabled="disabled"
+                                                                                               } } />
+}
+
+<section>
+  <br />
+  <br />
+  <h3>@Model.ManCo</h3>
+  <section class="accordion">
+    <section class="pane">
+      <table>
+        <thead>
+          <tr>
+            <th class="data5">DOC TYPE</th>
+            <th class="data4">SUB DOC TYPE</th>
+            <th class="data5">DOCUMENTS</th>
+            <th class="last"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach (KpiReportDataViewModel piReportDataViewModel in Model.KpiReport)
+          {
+            <tr>
+              <td colspan="6">
+                <table class="subtable">
+                  <thead>
+                    <tr>
+                      <th class="data5 odd">@piReportDataViewModel.DocType</th>
+                      <th class="data4 odd">@piReportDataViewModel.SubDocType</th>
+                      <th class="data5 odd">@piReportDataViewModel.NumberOfDocs</th>
+                      <th class="last"></th>
+                    </tr>
+                  </thead>
+                </table>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </section>
+  </section>
+</section>
+<span id="searchDocError">@TempData["noData"] </span>
+<div class="clearfix"></div>
